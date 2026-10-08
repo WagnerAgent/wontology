@@ -198,7 +198,7 @@
   height: 18px;
 }
 .ec-reidx-title {
-  font-family: var(--score-display);
+  font-family: var(--score-sans);
   font-size: 21px;
   line-height: 1.15;
   color: var(--score-frost);

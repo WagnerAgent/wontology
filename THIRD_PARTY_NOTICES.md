@@ -10,4 +10,4 @@ The category SVGs extracted from the Wagner ontology bundles are simple project 
 
 ## Fonts
 
-Inter, Space Grotesk, and Instrument Serif are bundled locally under the SIL Open Font License 1.1. Their copyright notices and complete license texts are included alongside the fonts in `src/wontology/static/fonts/*-OFL.txt` and in the installed package. Sources: [Inter](https://github.com/google/fonts/tree/main/ofl/inter), [Space Grotesk](https://github.com/google/fonts/tree/main/ofl/spacegrotesk), [Instrument Serif](https://github.com/google/fonts/tree/main/ofl/instrumentserif).
+Inter and Space Grotesk are bundled locally under the SIL Open Font License 1.1. Their copyright notices and complete license texts are included alongside the fonts in `src/wontology/static/fonts/*-OFL.txt` and in the installed package. Sources: [Inter](https://github.com/google/fonts/tree/main/ofl/inter), [Space Grotesk](https://github.com/google/fonts/tree/main/ofl/spacegrotesk).

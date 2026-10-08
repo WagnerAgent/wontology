@@ -211,8 +211,8 @@ class Handler(BaseHTTPRequestHandler):
                 "app.js.LEGAL.txt",
             } | {
                 f"fonts/{name}" for name in (
-                    "Inter.ttf", "SpaceGrotesk-Regular.ttf", "InstrumentSerif-Regular.ttf",
-                    "inter-OFL.txt", "spacegrotesk-OFL.txt", "instrumentserif-OFL.txt",
+                    "Inter.ttf", "SpaceGrotesk-Variable.ttf",
+                    "inter-OFL.txt", "spacegrotesk-OFL.txt",
                 )
             } | {f"icons/{name}.svg" for name in ("compute", "database", "generic", "network")}:
                 return self.send({"error": "Not found"}, 404)

@@ -72,7 +72,7 @@ jobs:
           for provider in ('aws', 'azure', 'gcp'):
               snapshot = json.load(client.open(f'{base}/api/demo?provider={provider}', timeout=5))
               assert snapshot['resources'] and snapshot['relationships']
-          for asset in ('app.js', 'app.css', 'fonts/Inter.ttf', 'icons/network.svg'):
+          for asset in ('app.js', 'app.css', 'fonts/Inter.ttf', 'fonts/SpaceGrotesk-Variable.ttf', 'icons/network.svg'):
               assert client.open(f'{base}/{asset}', timeout=5).read()
           print('Container startup, bundled UI, fonts, and three provider examples passed')
           PY

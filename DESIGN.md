@@ -14,7 +14,7 @@ The UI uses Wagner Design System V1, **The Score**, in its light manuscript regi
 | Rules | `--score-rule` | `rgba(10,10,20,.12)` |
 | Confirmed success | `--score-resolve` | `#2C7A4D` |
 
-Inter carries UI and labels, Space Grotesk the wordmark, and Instrument Serif page and dialog titles. Fonts are bundled locally under the SIL Open Font License; no font service is contacted. Monospace is reserved for code and identifiers.
+Typography follows [usewagner.com](https://www.usewagner.com/): variable Space Grotesk carries the wordmark and main page headline; variable Inter carries body text, controls, labels, and section and dialog headings. Fonts are bundled locally under the SIL Open Font License; no font service is contacted. Monospace is reserved for code and identifiers.
 
 The default canvas preserves Wagner's region → network → service → resource navigation, breadcrumbs, relationship curves, resource search and atlas. Small toolbar controls use 6px corners; graph nodes use 2px corners. The optional full topology view supports pan, zoom, filters and exported SVG diagrams. Both views share the resource evidence inspector.
 

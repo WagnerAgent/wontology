@@ -1,24 +1,17 @@
 /* Wagner Design System V1: The Score, light manuscript register. */
 @font-face {
-  font-family: Inter;
+  font-family: "Inter Variable";
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
   src: url("/fonts/Inter.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Space Grotesk";
+  font-family: "Space Grotesk Variable";
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
-  src: url("/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Instrument Serif";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/InstrumentSerif-Regular.ttf") format("truetype");
+  src: url("/fonts/SpaceGrotesk-Variable.ttf") format("truetype");
 }
 :root {
   --score-pitch: #f7f6fa;
@@ -34,9 +27,10 @@
   --score-violet-line: rgba(106, 53, 255, 0.3);
   --score-violet-wash: rgba(106, 53, 255, 0.08);
   --score-resolve: #2c7a4d;
-  --score-display: "Instrument Serif", Georgia, serif;
-  --score-wordmark: "Space Grotesk", system-ui, sans-serif;
-  --score-sans: Inter, system-ui, -apple-system, sans-serif;
+  --score-display: "Space Grotesk Variable", system-ui, sans-serif;
+  --score-wordmark: var(--score-display);
+  --score-sans:
+    "Inter Variable", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --score-mono: var(--score-sans);
   --score-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --bg: var(--score-pitch);
@@ -1156,15 +1150,17 @@ input {
 input::placeholder {
   color: var(--muted);
 }
-h1,
-.dialog-header h2,
-.inspector h2 {
+h1 {
   font-family: var(--score-display);
   font-weight: 400;
   letter-spacing: -0.02em;
-}
-h1 {
   font-size: clamp(28px, 3vw, 38px);
+}
+.dialog-header h2,
+.inspector h2 {
+  font-family: var(--score-sans);
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
 .good,
 .local-dot {
