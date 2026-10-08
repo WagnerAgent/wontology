@@ -14,7 +14,7 @@ AWS/Azure/GCP metadata connectors, validated evidence-backed ontologies, Wagner 
 - PNG export and local annotations that stay separate from observed cloud facts.
 - Credential setup diagnostics and native installers.
 - Performance benchmarks on large synthetic and real test environments.
-- Container runtime verification and optional credential helpers.
+- Container workload identity validation and optional credential helpers.
 
 ## Later
 

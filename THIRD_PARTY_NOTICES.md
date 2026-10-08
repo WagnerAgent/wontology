@@ -6,7 +6,7 @@ The web bundle includes React and React DOM (MIT), React Flow / @xyflow/react (M
 
 Python dependencies are installed from their respective distributions and retain their bundled license notices: Pydantic (MIT), PyYAML (MIT), JMESPath (MIT), Boto3/Botocore (Apache-2.0), Azure Identity/Azure Core (MIT), Google Auth (Apache-2.0), Requests (Apache-2.0), and their transitive dependencies. Development dependencies are not bundled in the application wheel.
 
-The category SVGs extracted from the Wagner ontology bundles are simple project assets. No third-party articles, screenshots of customer infrastructure, official cloud icon packs, external fonts, or private diagrams were copied into this repository.
+The category SVGs extracted from the Wagner ontology bundles are simple project assets. No third-party articles, screenshots of customer infrastructure, official cloud icon packs, or private diagrams were copied into this repository. Bundled open-source fonts are listed below.
 
 ## Fonts
 
