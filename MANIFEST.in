@@ -1,0 +1,9 @@
+include LICENSE NOTICE README.md DESIGN.md requirements.lock Dockerfile compose.yaml
+include THIRD_PARTY_NOTICES.md THIRD_PARTY_LICENSES.txt
+include web/package.json web/package-lock.json web/build.mjs web/tsconfig.json
+recursive-include web/src *.tsx *.css
+recursive-include web/src *.ts
+recursive-include web/tests *.mjs
+recursive-include docs *.md *.json *.png
+recursive-include examples *.json
+recursive-include tests *.py

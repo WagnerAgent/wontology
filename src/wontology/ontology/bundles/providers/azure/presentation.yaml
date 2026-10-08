@@ -1,0 +1,7 @@
+types:
+  generic.resource: {label: Resource, unit: resource, lane: other, icon_asset: generic.svg, accent_token: neutral, handles: [top, right, bottom, left]}
+  compute.instance: {label: Compute Instances, unit: instance, lane: web, icon_asset: compute.svg, accent_token: compute, handles: [top, right, bottom, left]}
+  data.database.instance: {label: Databases, unit: database, lane: data, icon_asset: database.svg, accent_token: data, handles: [top, bottom]}
+  network.boundary: {label: Networks, unit: network, lane: ops, icon_asset: network.svg, accent_token: network, handles: [top, right, bottom, left]}
+  network.segment: {label: Network Segments, unit: segment, lane: ops, icon_asset: network.svg, accent_token: network, handles: [top, bottom]}
+  network.interface: {label: Network Interfaces, unit: interface, lane: ops, icon_asset: network.svg, accent_token: network, handles: [top, bottom]}

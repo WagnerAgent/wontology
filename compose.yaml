@@ -1,0 +1,10 @@
+services:
+  wontology:
+    build: .
+    ports:
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - wontology-data:/data
+    restart: unless-stopped
+volumes:
+  wontology-data:

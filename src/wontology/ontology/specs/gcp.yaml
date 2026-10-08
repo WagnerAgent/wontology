@@ -1,0 +1,148 @@
+schema_version: 2.0.0
+bundle_version: 2026.10.1
+provider: gcp
+defaults:
+  category: unknown
+  capabilities:
+  - discovered
+  - requires_hydration
+  id_fields:
+  - fullResourceName
+  - selfLink
+  - name
+  name_fields:
+  - displayName
+  - name
+  location_fields:
+  - location
+  - zone
+  - region
+  type_fields:
+  - assetType
+  - type
+  zone_identifier_contains: /zones/
+resources:
+  resource_inventory:
+    dynamic_type: true
+    id_fields:
+    - fullResourceName
+    - selfLink
+    - name
+    name_fields:
+    - displayName
+    - name
+  instances:
+    type: compute.googleapis.com/Instance
+    category: compute
+    capabilities:
+    - workload
+    - network_attached
+    id_fields:
+    - selfLink
+    - fullResourceName
+    - name
+    name_fields:
+    - name
+  networks:
+    type: compute.googleapis.com/Network
+    category: network
+    capabilities:
+    - network_boundary
+    id_fields:
+    - selfLink
+    - fullResourceName
+    - name
+    name_fields:
+    - name
+  subnetworks:
+    type: compute.googleapis.com/Subnetwork
+    category: network
+    capabilities:
+    - network_segment
+    id_fields:
+    - selfLink
+    - fullResourceName
+    - name
+    name_fields:
+    - name
+  disks:
+    type: compute.googleapis.com/Disk
+    id_fields:
+    - selfLink
+    - fullResourceName
+    - name
+  firewalls:
+    type: compute.googleapis.com/Firewall
+    id_fields:
+    - selfLink
+    - fullResourceName
+    - name
+  forwarding_rules:
+    type: compute.googleapis.com/ForwardingRule
+    id_fields:
+    - selfLink
+    - fullResourceName
+    - name
+  databases:
+    type: sqladmin.googleapis.com/Instance
+    id_fields:
+    - selfLink
+    - fullResourceName
+    - name
+  container_clusters:
+    type: container.googleapis.com/Cluster
+    id_fields:
+    - selfLink
+    - fullResourceName
+    - name
+  buckets:
+    type: storage.googleapis.com/Bucket
+    id_fields:
+    - selfLink
+    - fullResourceName
+    - name
+  run_services:
+    type: run.googleapis.com/Service
+    id_fields:
+    - selfLink
+    - fullResourceName
+    - name
+relationships:
+- source: instances
+  path: networkInterfaces[].network
+  kind: deployed_in
+  id: gcp.instance-network
+- source: instances
+  path: networkInterfaces[].subnetwork
+  kind: deployed_in
+  id: gcp.instance-subnetwork
+- source: subnetworks
+  path: network
+  kind: contains
+  id: gcp.network-subnet
+  reverse: true
+- source: disks
+  path: users[]
+  kind: attached_to
+  id: gcp.disk-instance
+  reverse: false
+- source: firewalls
+  path: network
+  kind: associated_with
+  id: gcp.firewall-network
+  reverse: false
+- source: forwarding_rules
+  path: network
+  kind: deployed_in
+  id: gcp.forwarding-network
+  reverse: false
+- source: forwarding_rules
+  path: subnetwork
+  kind: deployed_in
+  id: gcp.forwarding-subnet
+  reverse: false
+- source: databases
+  path: settings.ipConfiguration.privateNetwork
+  kind: deployed_in
+  id: gcp.sql-network
+  reverse: false

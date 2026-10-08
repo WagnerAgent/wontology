@@ -1,0 +1,435 @@
+{
+  "resources": [
+    {
+      "canonical_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FvirtualNetworks%2Fprod",
+      "provider": "azure",
+      "provider_type": "Microsoft.Network/virtualNetworks",
+      "service": "virtual_networks",
+      "provider_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/virtualNetworks/prod",
+      "aliases": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/virtualNetworks/prod",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/demo/providers/microsoft.network/virtualnetworks/prod",
+        "prod"
+      ],
+      "cloud_scope_id": "00000000-0000-0000-0000-000000000000",
+      "location": "eastus",
+      "location_type": "region",
+      "name": "Production network",
+      "category": "network",
+      "capabilities": [
+        "network_boundary"
+      ],
+      "semantic_type": "network.boundary",
+      "semantic_facets": {
+        "domain": "network",
+        "kind": "network",
+        "subtype": "virtual-network",
+        "role": "boundary",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "azure.network.vnet",
+      "presentation_ref": "network.boundary",
+      "properties": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/virtualNetworks/prod",
+        "type": "Microsoft.Network/virtualNetworks",
+        "name": "Production network",
+        "location": "eastus"
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.430161Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FvirtualNetworks%2Fprod%2Fsubnets%2Fprivate",
+      "provider": "azure",
+      "provider_type": "Microsoft.Network/virtualNetworks/subnets",
+      "service": "subnets",
+      "provider_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/virtualNetworks/prod/subnets/private",
+      "aliases": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/virtualNetworks/prod/subnets/private",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/demo/providers/microsoft.network/virtualnetworks/prod/subnets/private",
+        "private"
+      ],
+      "cloud_scope_id": "00000000-0000-0000-0000-000000000000",
+      "location": "eastus",
+      "location_type": "region",
+      "name": "Private subnet",
+      "category": "network",
+      "capabilities": [
+        "network_segment"
+      ],
+      "semantic_type": "network.segment",
+      "semantic_facets": {
+        "domain": "network",
+        "kind": "network-segment",
+        "subtype": "subnet",
+        "role": "boundary",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "azure.network.subnet",
+      "presentation_ref": "network.segment",
+      "properties": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/virtualNetworks/prod/subnets/private",
+        "type": "Microsoft.Network/virtualNetworks/subnets",
+        "name": "Private subnet",
+        "location": "eastus",
+        "parent_vnet_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/virtualNetworks/prod",
+        "properties": {
+          "network_security_group": {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkSecurityGroups/web"
+          }
+        }
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.430161Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FnetworkInterfaces%2Fweb",
+      "provider": "azure",
+      "provider_type": "Microsoft.Network/networkInterfaces",
+      "service": "network_interfaces",
+      "provider_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkInterfaces/web",
+      "aliases": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkInterfaces/web",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/demo/providers/microsoft.network/networkinterfaces/web",
+        "web"
+      ],
+      "cloud_scope_id": "00000000-0000-0000-0000-000000000000",
+      "location": "eastus",
+      "location_type": "region",
+      "name": "Application interface",
+      "category": "network",
+      "capabilities": [
+        "network_attachment"
+      ],
+      "semantic_type": "network.interface",
+      "semantic_facets": {
+        "domain": "network",
+        "kind": "interface",
+        "subtype": null,
+        "role": "supporting",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "azure.network.nic",
+      "presentation_ref": "network.interface",
+      "properties": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkInterfaces/web",
+        "type": "Microsoft.Network/networkInterfaces",
+        "name": "Application interface",
+        "location": "eastus",
+        "properties": {
+          "ip_configurations": [
+            {
+              "properties": {
+                "subnet": {
+                  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/virtualNetworks/prod/subnets/private"
+                }
+              }
+            }
+          ],
+          "network_security_group": {
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkSecurityGroups/web"
+          }
+        }
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.430161Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FnetworkSecurityGroups%2Fweb",
+      "provider": "azure",
+      "provider_type": "Microsoft.Network/networkSecurityGroups",
+      "service": "security_groups",
+      "provider_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkSecurityGroups/web",
+      "aliases": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkSecurityGroups/web",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/demo/providers/microsoft.network/networksecuritygroups/web",
+        "web"
+      ],
+      "cloud_scope_id": "00000000-0000-0000-0000-000000000000",
+      "location": "eastus",
+      "location_type": "region",
+      "name": "Web access",
+      "category": "security",
+      "capabilities": [
+        "discovered"
+      ],
+      "semantic_type": "network.security-group",
+      "semantic_facets": {
+        "domain": "security",
+        "kind": "resource",
+        "subtype": null,
+        "role": "supporting",
+        "management_model": "managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "azure.security_groups",
+      "presentation_ref": "network.security-group",
+      "properties": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkSecurityGroups/web",
+        "type": "Microsoft.Network/networkSecurityGroups",
+        "name": "Web access",
+        "location": "eastus"
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.430161Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Fweb",
+      "provider": "azure",
+      "provider_type": "Microsoft.Compute/virtualMachines",
+      "service": "virtual_machines",
+      "provider_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Compute/virtualMachines/web",
+      "aliases": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Compute/virtualMachines/web",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/demo/providers/microsoft.compute/virtualmachines/web",
+        "web"
+      ],
+      "cloud_scope_id": "00000000-0000-0000-0000-000000000000",
+      "location": "eastus",
+      "location_type": "region",
+      "name": "Application server",
+      "category": "compute",
+      "capabilities": [
+        "workload",
+        "network_attached"
+      ],
+      "semantic_type": "compute.instance",
+      "semantic_facets": {
+        "domain": "compute",
+        "kind": "instance",
+        "subtype": "virtual-machine",
+        "role": "runtime",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "azure.compute.vm",
+      "presentation_ref": "compute.instance",
+      "properties": {
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Compute/virtualMachines/web",
+        "type": "Microsoft.Compute/virtualMachines",
+        "name": "Application server",
+        "location": "eastus",
+        "properties": {
+          "network_profile": {
+            "network_interfaces": [
+              {
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkInterfaces/web"
+              }
+            ]
+          }
+        }
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.430161Z",
+      "schema_version": "2.0.0"
+    }
+  ],
+  "relationships": [
+    {
+      "source_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FvirtualNetworks%2Fprod",
+      "target_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FvirtualNetworks%2Fprod%2Fsubnets%2Fprivate",
+      "kind": "contains",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "parent_vnet_id",
+          "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/virtualNetworks/prod",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "azure.vnet-subnet",
+      "rule_version": "2026.10.1",
+      "observed_at": "2026-10-07T19:08:01.430161Z"
+    },
+    {
+      "source_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FvirtualNetworks%2Fprod%2Fsubnets%2Fprivate",
+      "target_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FnetworkSecurityGroups%2Fweb",
+      "kind": "secured_by",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "properties.networkSecurityGroup.id",
+          "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkSecurityGroups/web",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "azure.subnet-nsg",
+      "rule_version": "2026.10.1",
+      "observed_at": "2026-10-07T19:08:01.430161Z"
+    },
+    {
+      "source_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FnetworkInterfaces%2Fweb",
+      "target_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FvirtualNetworks%2Fprod%2Fsubnets%2Fprivate",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "properties.ipConfigurations[].properties.subnet.id",
+          "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/virtualNetworks/prod/subnets/private",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "azure.nic-subnet",
+      "rule_version": "2026.10.1",
+      "observed_at": "2026-10-07T19:08:01.430161Z"
+    },
+    {
+      "source_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FnetworkInterfaces%2Fweb",
+      "target_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FnetworkSecurityGroups%2Fweb",
+      "kind": "secured_by",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "properties.networkSecurityGroup.id",
+          "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkSecurityGroups/web",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "azure.nic-nsg",
+      "rule_version": "2026.10.1",
+      "observed_at": "2026-10-07T19:08:01.430161Z"
+    },
+    {
+      "source_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Fweb",
+      "target_id": "azure://00000000-0000-0000-0000-000000000000/%2Fsubscriptions%2F00000000-0000-0000-0000-000000000000%2FresourceGroups%2Fdemo%2Fproviders%2FMicrosoft.Network%2FnetworkInterfaces%2Fweb",
+      "kind": "attached_to",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "properties.networkProfile.networkInterfaces[].id",
+          "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo/providers/Microsoft.Network/networkInterfaces/web",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "azure.vm-network-interface",
+      "rule_version": "2026.10.1",
+      "observed_at": "2026-10-07T19:08:01.430161Z"
+    }
+  ],
+  "coverage": [
+    {
+      "provider": "azure",
+      "cloud_scope_id": "00000000-0000-0000-0000-000000000000",
+      "location": "example",
+      "service": "virtual_networks",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.430161Z",
+      "completed_at": "2026-10-07T19:08:01.430161Z"
+    },
+    {
+      "provider": "azure",
+      "cloud_scope_id": "00000000-0000-0000-0000-000000000000",
+      "location": "example",
+      "service": "subnets",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.430161Z",
+      "completed_at": "2026-10-07T19:08:01.430161Z"
+    },
+    {
+      "provider": "azure",
+      "cloud_scope_id": "00000000-0000-0000-0000-000000000000",
+      "location": "example",
+      "service": "network_interfaces",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.430161Z",
+      "completed_at": "2026-10-07T19:08:01.430161Z"
+    },
+    {
+      "provider": "azure",
+      "cloud_scope_id": "00000000-0000-0000-0000-000000000000",
+      "location": "example",
+      "service": "security_groups",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.430161Z",
+      "completed_at": "2026-10-07T19:08:01.430161Z"
+    },
+    {
+      "provider": "azure",
+      "cloud_scope_id": "00000000-0000-0000-0000-000000000000",
+      "location": "example",
+      "service": "virtual_machines",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.430161Z",
+      "completed_at": "2026-10-07T19:08:01.430161Z"
+    }
+  ],
+  "unresolved_relationships": [],
+  "schema_version": "3.0.0",
+  "spec_bundle_version": "2026.10.1",
+  "spec_bundle_hash": "82af0d1065e00cd9d6a6145417a525db3da5395da9ee801401092e53d4d1a841",
+  "taxonomy_version": "3.0.0",
+  "presentation_bundle_version": "2026.10.1",
+  "presentation_bundle_hash": "3fb0c0f5df88424eb2646adfbcaaabc13d081fc5111c646db1171bee4b795e63",
+  "provider": "azure",
+  "scope": "00000000-0000-0000-0000-000000000000",
+  "demo": true,
+  "complete": true,
+  "id": "demo-azure"
+}

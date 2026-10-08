@@ -1,0 +1,139 @@
+schema_version: 2.0.0
+bundle_version: 2026.10.1
+provider: azure
+defaults:
+  category: unknown
+  capabilities:
+  - discovered
+  - requires_hydration
+  id_fields:
+  - id
+  - resourceId
+  name_fields:
+  - name
+  location_fields:
+  - location
+  type_fields:
+  - type
+resources:
+  resource_inventory:
+    dynamic_type: true
+    id_fields:
+    - id
+    - resourceId
+    name_fields:
+    - name
+  virtual_machines:
+    type: Microsoft.Compute/virtualMachines
+    category: compute
+    capabilities:
+    - workload
+    - network_attached
+    id_fields:
+    - id
+    name_fields:
+    - name
+  virtual_networks:
+    type: Microsoft.Network/virtualNetworks
+    category: network
+    capabilities:
+    - network_boundary
+    id_fields:
+    - id
+    name_fields:
+    - name
+  subnets:
+    type: Microsoft.Network/virtualNetworks/subnets
+    category: network
+    capabilities:
+    - network_segment
+    id_fields:
+    - id
+    name_fields:
+    - name
+  network_interfaces:
+    type: Microsoft.Network/networkInterfaces
+    category: network
+    capabilities:
+    - network_attachment
+    id_fields:
+    - id
+    name_fields:
+    - name
+  security_groups:
+    type: Microsoft.Network/networkSecurityGroups
+    id_fields:
+    - id
+  load_balancers:
+    type: Microsoft.Network/loadBalancers
+    id_fields:
+    - id
+  disks:
+    type: Microsoft.Compute/disks
+    id_fields:
+    - id
+  databases:
+    type: Microsoft.DBforPostgreSQL/flexibleServers
+    id_fields:
+    - id
+  container_clusters:
+    type: Microsoft.ContainerService/managedClusters
+    id_fields:
+    - id
+  storage_accounts:
+    type: Microsoft.Storage/storageAccounts
+    id_fields:
+    - id
+  web_apps:
+    type: Microsoft.Web/sites
+    id_fields:
+    - id
+relationships:
+- source: virtual_machines
+  path: properties.networkProfile.networkInterfaces[].id
+  kind: attached_to
+  id: azure.vm-network-interface
+- source: network_interfaces
+  path: properties.ipConfigurations[].properties.subnet.id
+  kind: deployed_in
+  id: azure.nic-subnet
+- source: subnets
+  path: parent_vnet_id
+  kind: contains
+  id: azure.vnet-subnet
+  reverse: true
+- source: network_interfaces
+  path: properties.networkSecurityGroup.id
+  kind: secured_by
+  id: azure.nic-nsg
+  reverse: false
+- source: subnets
+  path: properties.networkSecurityGroup.id
+  kind: secured_by
+  id: azure.subnet-nsg
+  reverse: false
+- source: virtual_machines
+  path: properties.storageProfile.osDisk.managedDisk.id
+  kind: attached_to
+  id: azure.vm-disk
+  reverse: false
+- source: virtual_machines
+  path: properties.storageProfile.dataDisks[].managedDisk.id
+  kind: attached_to
+  id: azure.vm-data-disk
+  reverse: false
+- source: load_balancers
+  path: properties.frontendIPConfigurations[].properties.subnet.id
+  kind: deployed_in
+  id: azure.lb-subnet
+  reverse: false
+- source: databases
+  path: properties.network.delegatedSubnetResourceId
+  kind: deployed_in
+  id: azure.db-subnet
+  reverse: false
+- source: container_clusters
+  path: properties.agentPoolProfiles[].vnetSubnetID
+  kind: deployed_in
+  id: azure.cluster-subnet
+  reverse: false

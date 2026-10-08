@@ -1,0 +1,7 @@
+lanes:
+  - {id: edge, label: Edge, order: 10}
+  - {id: web, label: Web, order: 20}
+  - {id: app, label: App, order: 30}
+  - {id: data, label: Data, order: 40}
+  - {id: ops, label: Ops, order: 50}
+  - {id: other, label: Other, order: 60}

@@ -1,0 +1,133 @@
+schema_version: 3.0.0
+bundle_version: 2026.10.1
+provider: azure
+rules:
+- id: azure.web_apps
+  native_type: Microsoft.Web/sites
+  priority: 100
+  semantic_type: compute.function
+  domain: compute
+  kind: resource
+  role: runtime
+  management_model: managed
+  capabilities:
+  - discovered
+- id: azure.storage_accounts
+  native_type: Microsoft.Storage/storageAccounts
+  priority: 100
+  semantic_type: storage.object.bucket
+  domain: storage
+  kind: resource
+  role: supporting
+  management_model: managed
+  capabilities:
+  - discovered
+- id: azure.container_clusters
+  native_type: Microsoft.ContainerService/managedClusters
+  priority: 100
+  semantic_type: compute.container-cluster
+  domain: compute
+  kind: resource
+  role: runtime
+  management_model: managed
+  capabilities:
+  - discovered
+- id: azure.disks
+  native_type: Microsoft.Compute/disks
+  priority: 100
+  semantic_type: storage.block.volume
+  domain: storage
+  kind: resource
+  role: supporting
+  management_model: managed
+  capabilities:
+  - discovered
+- id: azure.load_balancers
+  native_type: Microsoft.Network/loadBalancers
+  priority: 100
+  semantic_type: network.load-balancer
+  domain: network
+  kind: resource
+  role: supporting
+  management_model: managed
+  capabilities:
+  - discovered
+- id: azure.security_groups
+  native_type: Microsoft.Network/networkSecurityGroups
+  priority: 100
+  semantic_type: network.security-group
+  domain: security
+  kind: resource
+  role: supporting
+  management_model: managed
+  capabilities:
+  - discovered
+- id: azure.compute.vm
+  native_type: Microsoft.Compute/virtualMachines
+  priority: 100
+  semantic_type: compute.instance
+  domain: compute
+  kind: instance
+  subtype: virtual-machine
+  role: runtime
+  management_model: self_managed
+  capabilities:
+  - workload
+  - network_attached
+- id: azure.postgresql.server
+  native_type: Microsoft.DBforPostgreSQL/flexibleServers
+  priority: 100
+  semantic_type: data.database.instance
+  domain: data
+  kind: database
+  subtype: relational
+  role: runtime
+  management_model: managed
+  capabilities:
+  - stores_data
+  - network_endpoint
+  - supports_backups
+- id: azure.network.vnet
+  native_type: Microsoft.Network/virtualNetworks
+  priority: 100
+  semantic_type: network.boundary
+  domain: network
+  kind: network
+  subtype: virtual-network
+  role: boundary
+  management_model: self_managed
+  capabilities:
+  - network_boundary
+- id: azure.network.subnet
+  native_type: Microsoft.Network/virtualNetworks/subnets
+  priority: 100
+  semantic_type: network.segment
+  domain: network
+  kind: network-segment
+  subtype: subnet
+  role: boundary
+  management_model: self_managed
+  capabilities:
+  - network_segment
+- id: azure.network.nic
+  native_type: Microsoft.Network/networkInterfaces
+  priority: 100
+  semantic_type: network.interface
+  domain: network
+  kind: interface
+  role: supporting
+  management_model: self_managed
+  capabilities:
+  - network_attachment
+- id: azure.provider-fallback
+  native_type_glob: Microsoft.*
+  priority: 0
+  semantic_type: azure.resource
+  domain: unknown
+  kind: resource
+  role: supporting
+  management_model: unknown
+  status: provider_specific
+  capabilities:
+  - discovered
+  - requires_hydration

@@ -1,0 +1,1031 @@
+{
+  "resources": [
+    {
+      "canonical_id": "aws://000000000000/vpc-demo",
+      "provider": "aws",
+      "provider_type": "AWS::EC2::VPC",
+      "service": "vpc",
+      "provider_id": "vpc-demo",
+      "aliases": [
+        "vpc-demo"
+      ],
+      "cloud_scope_id": "000000000000",
+      "location": "us-east-1",
+      "location_type": "region",
+      "name": "Production network",
+      "category": "network",
+      "capabilities": [
+        "network_boundary"
+      ],
+      "semantic_type": "network.boundary",
+      "semantic_facets": {
+        "domain": "network",
+        "kind": "network",
+        "subtype": "vpc",
+        "role": "boundary",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "aws.vpc",
+      "presentation_ref": "network.boundary",
+      "properties": {
+        "vpc_id": "vpc-demo",
+        "tags": [
+          {
+            "key": "Name",
+            "value": "Production network"
+          }
+        ]
+      },
+      "raw": {},
+      "tags": {
+        "Name": "Production network"
+      },
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.416016Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "aws://000000000000/subnet-public",
+      "provider": "aws",
+      "provider_type": "AWS::EC2::Subnet",
+      "service": "subnet",
+      "provider_id": "subnet-public",
+      "aliases": [
+        "subnet-public"
+      ],
+      "cloud_scope_id": "000000000000",
+      "location": "us-east-1",
+      "location_type": "region",
+      "name": "Public subnet",
+      "category": "network",
+      "capabilities": [
+        "network_segment"
+      ],
+      "semantic_type": "network.segment",
+      "semantic_facets": {
+        "domain": "network",
+        "kind": "network-segment",
+        "subtype": "subnet",
+        "role": "boundary",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "aws.subnet",
+      "presentation_ref": "network.segment",
+      "properties": {
+        "subnet_id": "subnet-public",
+        "vpc_id": "vpc-demo",
+        "tags": [
+          {
+            "key": "Name",
+            "value": "Public subnet"
+          }
+        ]
+      },
+      "raw": {},
+      "tags": {
+        "Name": "Public subnet"
+      },
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.416016Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "aws://000000000000/subnet-private",
+      "provider": "aws",
+      "provider_type": "AWS::EC2::Subnet",
+      "service": "subnet",
+      "provider_id": "subnet-private",
+      "aliases": [
+        "subnet-private"
+      ],
+      "cloud_scope_id": "000000000000",
+      "location": "us-east-1",
+      "location_type": "region",
+      "name": "Private subnet",
+      "category": "network",
+      "capabilities": [
+        "network_segment"
+      ],
+      "semantic_type": "network.segment",
+      "semantic_facets": {
+        "domain": "network",
+        "kind": "network-segment",
+        "subtype": "subnet",
+        "role": "boundary",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "aws.subnet",
+      "presentation_ref": "network.segment",
+      "properties": {
+        "subnet_id": "subnet-private",
+        "vpc_id": "vpc-demo",
+        "tags": [
+          {
+            "key": "Name",
+            "value": "Private subnet"
+          }
+        ]
+      },
+      "raw": {},
+      "tags": {
+        "Name": "Private subnet"
+      },
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.416016Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "aws://000000000000/sg-web",
+      "provider": "aws",
+      "provider_type": "AWS::EC2::SecurityGroup",
+      "service": "securitygroup",
+      "provider_id": "sg-web",
+      "aliases": [
+        "sg-web"
+      ],
+      "cloud_scope_id": "000000000000",
+      "location": "us-east-1",
+      "location_type": "region",
+      "name": "Web access",
+      "category": "security",
+      "capabilities": [
+        "network_policy"
+      ],
+      "semantic_type": "network.security-group",
+      "semantic_facets": {
+        "domain": "security",
+        "kind": "security-group",
+        "subtype": null,
+        "role": "policy",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "aws.security-group",
+      "presentation_ref": "network.security-group",
+      "properties": {
+        "group_id": "sg-web",
+        "group_name": "Web access",
+        "vpc_id": "vpc-demo"
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.416016Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "aws://000000000000/i-demo-1",
+      "provider": "aws",
+      "provider_type": "AWS::EC2::Instance",
+      "service": "ec2",
+      "provider_id": "i-demo-1",
+      "aliases": [
+        "i-demo-1"
+      ],
+      "cloud_scope_id": "000000000000",
+      "location": "us-east-1",
+      "location_type": "region",
+      "name": "Application 1",
+      "category": "compute",
+      "capabilities": [
+        "workload",
+        "network_attached"
+      ],
+      "semantic_type": "compute.instance",
+      "semantic_facets": {
+        "domain": "compute",
+        "kind": "instance",
+        "subtype": "virtual-machine",
+        "role": "runtime",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "healthy",
+        "native_state": "running",
+        "evidence_path": "State.Name"
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "aws.ec2.instance",
+      "presentation_ref": "compute.instance",
+      "properties": {
+        "instance_id": "i-demo-1",
+        "subnet_id": "subnet-private",
+        "vpc_id": "vpc-demo",
+        "security_groups": [
+          {
+            "group_id": "sg-web"
+          }
+        ],
+        "tags": [
+          {
+            "key": "Name",
+            "value": "Application 1"
+          }
+        ],
+        "state": {
+          "name": "running"
+        }
+      },
+      "raw": {},
+      "tags": {
+        "Name": "Application 1"
+      },
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.416016Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "aws://000000000000/i-demo-2",
+      "provider": "aws",
+      "provider_type": "AWS::EC2::Instance",
+      "service": "ec2",
+      "provider_id": "i-demo-2",
+      "aliases": [
+        "i-demo-2"
+      ],
+      "cloud_scope_id": "000000000000",
+      "location": "us-east-1",
+      "location_type": "region",
+      "name": "Application 2",
+      "category": "compute",
+      "capabilities": [
+        "workload",
+        "network_attached"
+      ],
+      "semantic_type": "compute.instance",
+      "semantic_facets": {
+        "domain": "compute",
+        "kind": "instance",
+        "subtype": "virtual-machine",
+        "role": "runtime",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "healthy",
+        "native_state": "running",
+        "evidence_path": "State.Name"
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "aws.ec2.instance",
+      "presentation_ref": "compute.instance",
+      "properties": {
+        "instance_id": "i-demo-2",
+        "subnet_id": "subnet-private",
+        "vpc_id": "vpc-demo",
+        "security_groups": [
+          {
+            "group_id": "sg-web"
+          }
+        ],
+        "tags": [
+          {
+            "key": "Name",
+            "value": "Application 2"
+          }
+        ],
+        "state": {
+          "name": "running"
+        }
+      },
+      "raw": {},
+      "tags": {
+        "Name": "Application 2"
+      },
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.416016Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "aws://000000000000/arn%3Aaws%3Aelasticloadbalancing%3Aus-east-1%3A000000000000%3Aloadbalancer%2Fapp%2Fdemo",
+      "provider": "aws",
+      "provider_type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+      "service": "alb",
+      "provider_id": "arn:aws:elasticloadbalancing:us-east-1:000000000000:loadbalancer/app/demo",
+      "aliases": [
+        "arn:aws:elasticloadbalancing:us-east-1:000000000000:loadbalancer/app/demo",
+        "demo",
+        "loadbalancer/app/demo"
+      ],
+      "cloud_scope_id": "000000000000",
+      "location": "us-east-1",
+      "location_type": "region",
+      "name": "Public gateway",
+      "category": "network",
+      "capabilities": [
+        "network_endpoint"
+      ],
+      "semantic_type": "network.load-balancer",
+      "semantic_facets": {
+        "domain": "network",
+        "kind": "load-balancer",
+        "subtype": null,
+        "role": "runtime",
+        "management_model": "managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "aws.load-balancer",
+      "presentation_ref": "network.load-balancer",
+      "properties": {
+        "load_balancer_arn": "arn:aws:elasticloadbalancing:us-east-1:000000000000:loadbalancer/app/demo",
+        "load_balancer_name": "Public gateway",
+        "vpc_id": "vpc-demo",
+        "availability_zones": [
+          {
+            "subnet_id": "subnet-public"
+          }
+        ],
+        "security_groups": [
+          "sg-web"
+        ]
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.416016Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "aws://000000000000/arn%3Aaws%3Ards%3Aus-east-1%3A000000000000%3Adb%3Ademo",
+      "provider": "aws",
+      "provider_type": "AWS::RDS::DBInstance",
+      "service": "rds",
+      "provider_id": "arn:aws:rds:us-east-1:000000000000:db:demo",
+      "aliases": [
+        "Application database",
+        "application database",
+        "arn:aws:rds:us-east-1:000000000000:db:demo",
+        "demo"
+      ],
+      "cloud_scope_id": "000000000000",
+      "location": "us-east-1",
+      "location_type": "region",
+      "name": "Application database",
+      "category": "data",
+      "capabilities": [
+        "stores_data",
+        "network_endpoint",
+        "supports_backups"
+      ],
+      "semantic_type": "data.database.instance",
+      "semantic_facets": {
+        "domain": "data",
+        "kind": "database",
+        "subtype": "relational",
+        "role": "runtime",
+        "management_model": "managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "aws.rds.instance",
+      "presentation_ref": "data.database.instance.relational",
+      "properties": {
+        "d_b_instance_arn": "arn:aws:rds:us-east-1:000000000000:db:demo",
+        "d_b_instance_identifier": "Application database",
+        "d_b_subnet_group": {
+          "vpc_id": "vpc-demo",
+          "subnets": [
+            {
+              "subnet_identifier": "subnet-private"
+            }
+          ]
+        },
+        "vpc_security_groups": [
+          {
+            "vpc_security_group_id": "sg-web"
+          }
+        ]
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.416016Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "aws://000000000000/vol-demo",
+      "provider": "aws",
+      "provider_type": "AWS::EC2::Volume",
+      "service": "ebs",
+      "provider_id": "vol-demo",
+      "aliases": [
+        "vol-demo"
+      ],
+      "cloud_scope_id": "000000000000",
+      "location": "us-east-1",
+      "location_type": "region",
+      "name": "vol-demo",
+      "category": "data",
+      "capabilities": [
+        "stores_data",
+        "block_store"
+      ],
+      "semantic_type": "storage.block.volume",
+      "semantic_facets": {
+        "domain": "data",
+        "kind": "block-volume",
+        "subtype": null,
+        "role": "runtime",
+        "management_model": "managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "aws.ebs.volume",
+      "presentation_ref": "storage.block.volume",
+      "properties": {
+        "volume_id": "vol-demo",
+        "attachments": [
+          {
+            "instance_id": "i-demo-1"
+          }
+        ]
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.416016Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "aws://000000000000/wontology-example-assets",
+      "provider": "aws",
+      "provider_type": "AWS::S3::Bucket",
+      "service": "s3",
+      "provider_id": "wontology-example-assets",
+      "aliases": [
+        "wontology-example-assets"
+      ],
+      "cloud_scope_id": "000000000000",
+      "location": "global",
+      "location_type": "global",
+      "name": "wontology-example-assets",
+      "category": "data",
+      "capabilities": [
+        "stores_data",
+        "object_store"
+      ],
+      "semantic_type": "storage.object.bucket",
+      "semantic_facets": {
+        "domain": "data",
+        "kind": "object-store",
+        "subtype": "bucket",
+        "role": "runtime",
+        "management_model": "managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "aws.s3.bucket",
+      "presentation_ref": "storage.object.bucket",
+      "properties": {
+        "name": "wontology-example-assets"
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.416016Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "aws://000000000000/arn%3Aaws%3Alambda%3Aus-east-1%3A000000000000%3Afunction%3Ademo",
+      "provider": "aws",
+      "provider_type": "AWS::Lambda::Function",
+      "service": "lambda",
+      "provider_id": "arn:aws:lambda:us-east-1:000000000000:function:demo",
+      "aliases": [
+        "Background worker",
+        "arn:aws:lambda:us-east-1:000000000000:function:demo",
+        "background worker",
+        "demo"
+      ],
+      "cloud_scope_id": "000000000000",
+      "location": "us-east-1",
+      "location_type": "region",
+      "name": "Background worker",
+      "category": "compute",
+      "capabilities": [
+        "workload",
+        "event_consumer"
+      ],
+      "semantic_type": "compute.function",
+      "semantic_facets": {
+        "domain": "compute",
+        "kind": "function",
+        "subtype": "serverless",
+        "role": "runtime",
+        "management_model": "managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "aws.lambda.function",
+      "presentation_ref": "compute.function",
+      "properties": {
+        "function_arn": "arn:aws:lambda:us-east-1:000000000000:function:demo",
+        "function_name": "Background worker",
+        "vpc_config": {
+          "subnet_ids": [
+            "subnet-private"
+          ],
+          "security_group_ids": [
+            "sg-web"
+          ]
+        }
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.416016Z",
+      "schema_version": "2.0.0"
+    }
+  ],
+  "relationships": [
+    {
+      "source_id": "aws://000000000000/vpc-demo",
+      "target_id": "aws://000000000000/subnet-public",
+      "kind": "contains",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "VpcId",
+          "value": "vpc-demo",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.vpc-contains-subnet",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/vpc-demo",
+      "target_id": "aws://000000000000/subnet-private",
+      "kind": "contains",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "VpcId",
+          "value": "vpc-demo",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.vpc-contains-subnet",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/vpc-demo",
+      "target_id": "aws://000000000000/sg-web",
+      "kind": "contains",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "VpcId",
+          "value": "vpc-demo",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.vpc-contains-security-group",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/i-demo-1",
+      "target_id": "aws://000000000000/subnet-private",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "SubnetId",
+          "value": "subnet-private",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.instance-in-subnet",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/i-demo-1",
+      "target_id": "aws://000000000000/vpc-demo",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "VpcId",
+          "value": "vpc-demo",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.instance-in-vpc",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/i-demo-1",
+      "target_id": "aws://000000000000/sg-web",
+      "kind": "secured_by",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "SecurityGroups[].GroupId",
+          "value": "sg-web",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.instance-security-group",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/i-demo-2",
+      "target_id": "aws://000000000000/subnet-private",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "SubnetId",
+          "value": "subnet-private",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.instance-in-subnet",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/i-demo-2",
+      "target_id": "aws://000000000000/vpc-demo",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "VpcId",
+          "value": "vpc-demo",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.instance-in-vpc",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/i-demo-2",
+      "target_id": "aws://000000000000/sg-web",
+      "kind": "secured_by",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "SecurityGroups[].GroupId",
+          "value": "sg-web",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.instance-security-group",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/arn%3Aaws%3Aelasticloadbalancing%3Aus-east-1%3A000000000000%3Aloadbalancer%2Fapp%2Fdemo",
+      "target_id": "aws://000000000000/vpc-demo",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "VpcId",
+          "value": "vpc-demo",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.load-balancer-in-vpc",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/arn%3Aaws%3Aelasticloadbalancing%3Aus-east-1%3A000000000000%3Aloadbalancer%2Fapp%2Fdemo",
+      "target_id": "aws://000000000000/sg-web",
+      "kind": "secured_by",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "SecurityGroups[]",
+          "value": "sg-web",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.load-balancer-security-group",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/arn%3Aaws%3Aelasticloadbalancing%3Aus-east-1%3A000000000000%3Aloadbalancer%2Fapp%2Fdemo",
+      "target_id": "aws://000000000000/subnet-public",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "AvailabilityZones[].SubnetId",
+          "value": "subnet-public",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.load-balancer-in-subnet",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/arn%3Aaws%3Ards%3Aus-east-1%3A000000000000%3Adb%3Ademo",
+      "target_id": "aws://000000000000/vpc-demo",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "DBSubnetGroup.VpcId",
+          "value": "vpc-demo",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.rds-in-vpc",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/arn%3Aaws%3Ards%3Aus-east-1%3A000000000000%3Adb%3Ademo",
+      "target_id": "aws://000000000000/subnet-private",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "DBSubnetGroup.Subnets[].SubnetIdentifier",
+          "value": "subnet-private",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.rds-in-subnet",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/arn%3Aaws%3Ards%3Aus-east-1%3A000000000000%3Adb%3Ademo",
+      "target_id": "aws://000000000000/sg-web",
+      "kind": "secured_by",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "VpcSecurityGroups[].VpcSecurityGroupId",
+          "value": "sg-web",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.rds-security-group",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/vol-demo",
+      "target_id": "aws://000000000000/i-demo-1",
+      "kind": "attached_to",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "Attachments[].InstanceId",
+          "value": "i-demo-1",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.volume-attached-instance",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/arn%3Aaws%3Alambda%3Aus-east-1%3A000000000000%3Afunction%3Ademo",
+      "target_id": "aws://000000000000/subnet-private",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "VpcConfig.SubnetIds[]",
+          "value": "subnet-private",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.lambda-in-subnet",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "source_id": "aws://000000000000/arn%3Aaws%3Alambda%3Aus-east-1%3A000000000000%3Afunction%3Ademo",
+      "target_id": "aws://000000000000/sg-web",
+      "kind": "secured_by",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "VpcConfig.SecurityGroupIds[]",
+          "value": "sg-web",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "aws.lambda-security-group",
+      "rule_version": "2026.08.1",
+      "observed_at": "2026-10-07T19:08:01.416016Z"
+    }
+  ],
+  "coverage": [
+    {
+      "provider": "aws",
+      "cloud_scope_id": "000000000000",
+      "location": "example",
+      "service": "vpc",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.416016Z",
+      "completed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "provider": "aws",
+      "cloud_scope_id": "000000000000",
+      "location": "example",
+      "service": "subnet",
+      "status": "complete",
+      "resources_found": 2,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.416016Z",
+      "completed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "provider": "aws",
+      "cloud_scope_id": "000000000000",
+      "location": "example",
+      "service": "securitygroup",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.416016Z",
+      "completed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "provider": "aws",
+      "cloud_scope_id": "000000000000",
+      "location": "example",
+      "service": "ec2",
+      "status": "complete",
+      "resources_found": 2,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.416016Z",
+      "completed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "provider": "aws",
+      "cloud_scope_id": "000000000000",
+      "location": "example",
+      "service": "alb",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.416016Z",
+      "completed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "provider": "aws",
+      "cloud_scope_id": "000000000000",
+      "location": "example",
+      "service": "rds",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.416016Z",
+      "completed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "provider": "aws",
+      "cloud_scope_id": "000000000000",
+      "location": "example",
+      "service": "ebs",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.416016Z",
+      "completed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "provider": "aws",
+      "cloud_scope_id": "000000000000",
+      "location": "example",
+      "service": "s3",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.416016Z",
+      "completed_at": "2026-10-07T19:08:01.416016Z"
+    },
+    {
+      "provider": "aws",
+      "cloud_scope_id": "000000000000",
+      "location": "example",
+      "service": "lambda",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.416016Z",
+      "completed_at": "2026-10-07T19:08:01.416016Z"
+    }
+  ],
+  "unresolved_relationships": [],
+  "schema_version": "3.0.0",
+  "spec_bundle_version": "2026.08.2",
+  "spec_bundle_hash": "08044ae9c3887fc1f59a9813758de3440b5df8c09d88f60856377cbd45c67306",
+  "taxonomy_version": "3.0.0",
+  "presentation_bundle_version": "2026.08.2",
+  "presentation_bundle_hash": "6c82ec6df4cc3f15063a0c6064fd7686074fc09d7bb8d1dd96b8c79aa983b375",
+  "provider": "aws",
+  "scope": "000000000000",
+  "demo": true,
+  "complete": true,
+  "id": "demo-aws"
+}

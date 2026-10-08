@@ -1,0 +1,347 @@
+{
+  "resources": [
+    {
+      "canonical_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fglobal%2Fnetworks%2Fprod",
+      "provider": "gcp",
+      "provider_type": "compute.googleapis.com/Network",
+      "service": "networks",
+      "provider_id": "https://www.googleapis.com/compute/v1/projects/wontology-example/global/networks/prod",
+      "aliases": [
+        "//www.googleapis.com/compute/v1/projects/wontology-example/global/networks/prod",
+        "Production network",
+        "https://www.googleapis.com/compute/v1/projects/wontology-example/global/networks/prod",
+        "prod",
+        "production network"
+      ],
+      "cloud_scope_id": "wontology-example",
+      "location": "global",
+      "location_type": "global",
+      "name": "Production network",
+      "category": "network",
+      "capabilities": [
+        "network_boundary"
+      ],
+      "semantic_type": "network.boundary",
+      "semantic_facets": {
+        "domain": "network",
+        "kind": "network",
+        "subtype": "vpc",
+        "role": "boundary",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "gcp.compute.network",
+      "presentation_ref": "network.boundary",
+      "properties": {
+        "self_link": "https://www.googleapis.com/compute/v1/projects/wontology-example/global/networks/prod",
+        "name": "Production network",
+        "asset_type": "compute.googleapis.com/Network",
+        "location": "global"
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.441751Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fregions%2Fus-central1%2Fsubnetworks%2Fprivate",
+      "provider": "gcp",
+      "provider_type": "compute.googleapis.com/Subnetwork",
+      "service": "subnetworks",
+      "provider_id": "https://www.googleapis.com/compute/v1/projects/wontology-example/regions/us-central1/subnetworks/private",
+      "aliases": [
+        "//www.googleapis.com/compute/v1/projects/wontology-example/regions/us-central1/subnetworks/private",
+        "Private subnet",
+        "https://www.googleapis.com/compute/v1/projects/wontology-example/regions/us-central1/subnetworks/private",
+        "private",
+        "private subnet"
+      ],
+      "cloud_scope_id": "wontology-example",
+      "location": "us-central1",
+      "location_type": "region",
+      "name": "Private subnet",
+      "category": "network",
+      "capabilities": [
+        "network_segment"
+      ],
+      "semantic_type": "network.segment",
+      "semantic_facets": {
+        "domain": "network",
+        "kind": "network-segment",
+        "subtype": "subnet",
+        "role": "boundary",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "gcp.compute.subnetwork",
+      "presentation_ref": "network.segment",
+      "properties": {
+        "self_link": "https://www.googleapis.com/compute/v1/projects/wontology-example/regions/us-central1/subnetworks/private",
+        "name": "Private subnet",
+        "network": "https://www.googleapis.com/compute/v1/projects/wontology-example/global/networks/prod",
+        "asset_type": "compute.googleapis.com/Subnetwork",
+        "location": "us-central1"
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.441751Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fzones%2Fus-central1-a%2Finstances%2Fweb",
+      "provider": "gcp",
+      "provider_type": "compute.googleapis.com/Instance",
+      "service": "instances",
+      "provider_id": "https://www.googleapis.com/compute/v1/projects/wontology-example/zones/us-central1-a/instances/web",
+      "aliases": [
+        "//www.googleapis.com/compute/v1/projects/wontology-example/zones/us-central1-a/instances/web",
+        "Application server",
+        "application server",
+        "https://www.googleapis.com/compute/v1/projects/wontology-example/zones/us-central1-a/instances/web",
+        "web"
+      ],
+      "cloud_scope_id": "wontology-example",
+      "location": "us-central1-a",
+      "location_type": "zone",
+      "name": "Application server",
+      "category": "compute",
+      "capabilities": [
+        "workload",
+        "network_attached"
+      ],
+      "semantic_type": "compute.instance",
+      "semantic_facets": {
+        "domain": "compute",
+        "kind": "instance",
+        "subtype": "virtual-machine",
+        "role": "runtime",
+        "management_model": "self_managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "gcp.compute.instance",
+      "presentation_ref": "compute.instance",
+      "properties": {
+        "self_link": "https://www.googleapis.com/compute/v1/projects/wontology-example/zones/us-central1-a/instances/web",
+        "name": "Application server",
+        "asset_type": "compute.googleapis.com/Instance",
+        "location": "us-central1-a",
+        "network_interfaces": [
+          {
+            "network": "https://www.googleapis.com/compute/v1/projects/wontology-example/global/networks/prod",
+            "subnetwork": "https://www.googleapis.com/compute/v1/projects/wontology-example/regions/us-central1/subnetworks/private"
+          }
+        ]
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.441751Z",
+      "schema_version": "2.0.0"
+    },
+    {
+      "canonical_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fzones%2Fus-central1-a%2Fdisks%2Fweb",
+      "provider": "gcp",
+      "provider_type": "compute.googleapis.com/Disk",
+      "service": "disks",
+      "provider_id": "https://www.googleapis.com/compute/v1/projects/wontology-example/zones/us-central1-a/disks/web",
+      "aliases": [
+        "//www.googleapis.com/compute/v1/projects/wontology-example/zones/us-central1-a/disks/web",
+        "Application disk",
+        "application disk",
+        "https://www.googleapis.com/compute/v1/projects/wontology-example/zones/us-central1-a/disks/web",
+        "web"
+      ],
+      "cloud_scope_id": "wontology-example",
+      "location": "us-central1-a",
+      "location_type": "zone",
+      "name": "Application disk",
+      "category": "storage",
+      "capabilities": [
+        "discovered"
+      ],
+      "semantic_type": "storage.block.volume",
+      "semantic_facets": {
+        "domain": "storage",
+        "kind": "resource",
+        "subtype": null,
+        "role": "supporting",
+        "management_model": "managed"
+      },
+      "health": {
+        "state": "unknown",
+        "native_state": null,
+        "evidence_path": null
+      },
+      "classification_status": "classified",
+      "classification_rule_id": "gcp.disks",
+      "presentation_ref": "storage.block.volume",
+      "properties": {
+        "self_link": "https://www.googleapis.com/compute/v1/projects/wontology-example/zones/us-central1-a/disks/web",
+        "name": "Application disk",
+        "asset_type": "compute.googleapis.com/Disk",
+        "location": "us-central1-a",
+        "users": [
+          "https://www.googleapis.com/compute/v1/projects/wontology-example/zones/us-central1-a/instances/web"
+        ]
+      },
+      "raw": {},
+      "tags": {},
+      "source_api": "synthetic-example",
+      "observed_at": "2026-10-07T19:08:01.441751Z",
+      "schema_version": "2.0.0"
+    }
+  ],
+  "relationships": [
+    {
+      "source_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fglobal%2Fnetworks%2Fprod",
+      "target_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fregions%2Fus-central1%2Fsubnetworks%2Fprivate",
+      "kind": "contains",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "network",
+          "value": "https://www.googleapis.com/compute/v1/projects/wontology-example/global/networks/prod",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "gcp.network-subnet",
+      "rule_version": "2026.10.1",
+      "observed_at": "2026-10-07T19:08:01.441751Z"
+    },
+    {
+      "source_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fzones%2Fus-central1-a%2Finstances%2Fweb",
+      "target_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fglobal%2Fnetworks%2Fprod",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "networkInterfaces[].network",
+          "value": "https://www.googleapis.com/compute/v1/projects/wontology-example/global/networks/prod",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "gcp.instance-network",
+      "rule_version": "2026.10.1",
+      "observed_at": "2026-10-07T19:08:01.441751Z"
+    },
+    {
+      "source_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fzones%2Fus-central1-a%2Finstances%2Fweb",
+      "target_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fregions%2Fus-central1%2Fsubnetworks%2Fprivate",
+      "kind": "deployed_in",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "networkInterfaces[].subnetwork",
+          "value": "https://www.googleapis.com/compute/v1/projects/wontology-example/regions/us-central1/subnetworks/private",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "gcp.instance-subnetwork",
+      "rule_version": "2026.10.1",
+      "observed_at": "2026-10-07T19:08:01.441751Z"
+    },
+    {
+      "source_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fzones%2Fus-central1-a%2Fdisks%2Fweb",
+      "target_id": "gcp://wontology-example/https%3A%2F%2Fwww.googleapis.com%2Fcompute%2Fv1%2Fprojects%2Fwontology-example%2Fzones%2Fus-central1-a%2Finstances%2Fweb",
+      "kind": "attached_to",
+      "evidence": [
+        {
+          "source": "synthetic-example",
+          "path": "users[]",
+          "value": "https://www.googleapis.com/compute/v1/projects/wontology-example/zones/us-central1-a/instances/web",
+          "observed": true
+        }
+      ],
+      "confidence": 1.0,
+      "inferred": false,
+      "rule_id": "gcp.disk-instance",
+      "rule_version": "2026.10.1",
+      "observed_at": "2026-10-07T19:08:01.441751Z"
+    }
+  ],
+  "coverage": [
+    {
+      "provider": "gcp",
+      "cloud_scope_id": "wontology-example",
+      "location": "example",
+      "service": "networks",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.441751Z",
+      "completed_at": "2026-10-07T19:08:01.441751Z"
+    },
+    {
+      "provider": "gcp",
+      "cloud_scope_id": "wontology-example",
+      "location": "example",
+      "service": "subnetworks",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.441751Z",
+      "completed_at": "2026-10-07T19:08:01.441751Z"
+    },
+    {
+      "provider": "gcp",
+      "cloud_scope_id": "wontology-example",
+      "location": "example",
+      "service": "instances",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.441751Z",
+      "completed_at": "2026-10-07T19:08:01.441751Z"
+    },
+    {
+      "provider": "gcp",
+      "cloud_scope_id": "wontology-example",
+      "location": "example",
+      "service": "disks",
+      "status": "complete",
+      "resources_found": 1,
+      "error_code": null,
+      "error_message": null,
+      "started_at": "2026-10-07T19:08:01.441751Z",
+      "completed_at": "2026-10-07T19:08:01.441751Z"
+    }
+  ],
+  "unresolved_relationships": [],
+  "schema_version": "3.0.0",
+  "spec_bundle_version": "2026.10.1",
+  "spec_bundle_hash": "e240ab661fbe1f37627beedebe8a547ec9d9e78f1141c24cd6d5952ffa20f30b",
+  "taxonomy_version": "3.0.0",
+  "presentation_bundle_version": "2026.10.1",
+  "presentation_bundle_hash": "3a2d83b4251db0f1606f4a93246ba0e452d98ec8060c357c19845cb80a7726a2",
+  "provider": "gcp",
+  "scope": "wontology-example",
+  "demo": true,
+  "complete": true,
+  "id": "demo-gcp"
+}

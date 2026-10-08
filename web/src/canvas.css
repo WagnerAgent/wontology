@@ -1,0 +1,908 @@
+/* ── Canvas paper + top toolbar (DS .canvas-bar) ──
+   The canvas column reads as one soft-white manuscript page (--score-pitch).
+   The ReactFlow surface is transparent so the page + dot grid show through,
+   and a 52px hairline-bottomed bar carries the title and tools. */
+.score-canvas .react-flow,
+.score-canvas .react-flow__pane {
+  background: transparent;
+}
+
+/* The canvas column is a query container so the toolbar can adapt to its own
+   width (which changes as the chat panel is resized), not the viewport. */
+.canvas-section {
+  container: canvas / inline-size;
+}
+
+.canvas-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  flex-shrink: 0;
+  padding: 0 14px;
+  background: var(--score-pitch);
+  border-bottom: 1px solid var(--score-rule);
+  z-index: 3;
+}
+
+/* left — breadcrumb root (account) + flagged pill. Grows to push the tools
+   right (like space-between) but shrinks/truncates first when the canvas is
+   narrow, so the right-hand tools never clip. */
+.ec-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.ec-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-family: var(--score-mono);
+  font-size: 11px;
+  color: var(--score-muted);
+}
+.ec-crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  background: none;
+  border: 0;
+  color: var(--score-muted);
+  padding: 2px 3px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.ec-crumb:hover {
+  color: var(--score-frost);
+}
+.ec-crumb.here {
+  color: var(--score-violet);
+}
+.ec-crumb .ct-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ec-fermata {
+  flex-shrink: 0;
+  color: var(--score-violet);
+  display: inline-flex;
+}
+.ec-crumbs .sep {
+  color: var(--score-whisper);
+  margin: 0 2px;
+}
+
+.ec-overlay-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-family: var(--score-mono);
+  font-size: 10px;
+  color: #b4474a;
+  border: 1px solid rgba(214, 115, 115, 0.4);
+  background: rgba(214, 115, 115, 0.1);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.ec-overlay-pill .d {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #d67373;
+}
+
+/* Re-index / Stop — a bare icon next to the environment crumb. Idle: opens a
+   confirm modal. Indexing: violet, with the glyph spinning; click to stop. */
+.ec-reindex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  color: var(--score-whisper);
+  background: transparent;
+  border: 1px solid var(--score-rule);
+  border-radius: 999px;
+  transition:
+    color 0.14s var(--score-ease),
+    border-color 0.14s var(--score-ease),
+    background 0.14s var(--score-ease);
+}
+.ec-reindex:hover {
+  color: var(--score-frost);
+  border-color: var(--score-rule-strong);
+  background: var(--score-surface-2);
+}
+.ec-reindex svg {
+  width: 13px;
+  height: 13px;
+}
+.ec-reindex.indexing {
+  color: var(--score-violet);
+  border-color: var(--score-violet-line);
+  background: var(--score-violet-wash);
+}
+.ec-reindex.indexing:hover {
+  background: var(--score-violet-wash);
+}
+.ec-reindex-spin {
+  display: inline-flex;
+  animation: ec-reindex-spin 0.9s linear infinite;
+}
+@keyframes ec-reindex-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ec-reindex-spin {
+    animation: none;
+  }
+}
+
+/* Re-index confirmation modal. */
+.ec-reidx-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10, 10, 20, 0.32);
+  backdrop-filter: blur(2px);
+  animation: ec-reidx-fade 0.14s var(--score-ease);
+}
+@keyframes ec-reidx-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.ec-reidx-modal {
+  width: 100%;
+  max-width: 380px;
+  background: var(--score-surface);
+  border: 1px solid var(--score-rule);
+  border-radius: 14px;
+  box-shadow: 0 24px 60px -24px rgba(10, 10, 20, 0.45);
+  padding: 22px;
+  text-align: center;
+}
+.ec-reidx-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  color: var(--score-violet);
+  background: var(--score-violet-wash);
+  box-shadow: inset 0 0 0 1px var(--score-violet-line);
+}
+.ec-reidx-ico svg {
+  width: 18px;
+  height: 18px;
+}
+.ec-reidx-title {
+  font-family: var(--score-display);
+  font-size: 21px;
+  line-height: 1.15;
+  color: var(--score-frost);
+  margin: 0 0 8px;
+}
+.ec-reidx-body {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--score-muted);
+  margin: 0 0 18px;
+}
+.ec-reidx-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.ec-reidx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition:
+    background 0.14s var(--score-ease),
+    border-color 0.14s var(--score-ease);
+}
+.ec-reidx-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.ec-reidx-btn.ghost {
+  color: var(--score-muted);
+  background: transparent;
+  border-color: var(--score-rule);
+}
+.ec-reidx-btn.ghost:hover {
+  background: var(--score-surface-2);
+  color: var(--score-frost);
+}
+.ec-reidx-btn.primary {
+  color: #fff;
+  background: var(--score-violet);
+  border-color: var(--score-violet);
+}
+.ec-reidx-btn.primary:hover {
+  background: #5a2ee0;
+}
+
+/* right — call a specialist + search + atlas toggle. The search absorbs the
+   squeeze on a narrow canvas; the summon button and atlas toggle stay fixed. */
+.canvas-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+.canvas-summon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  background: var(--score-surface);
+  border: 1px solid var(--score-rule);
+  border-radius: 6px;
+  padding: 6px 11px;
+  font-size: 12px;
+  color: var(--score-frost);
+  white-space: nowrap;
+  transition:
+    border-color 0.14s var(--score-ease),
+    background 0.14s var(--score-ease);
+}
+.canvas-summon:hover {
+  border-color: var(--score-violet-line);
+  background: var(--score-violet-wash);
+}
+.canvas-summon svg {
+  width: 13px;
+  height: 13px;
+  color: var(--score-violet);
+}
+.canvas-summon .kbd {
+  font-family: var(--score-mono);
+  font-size: 9px;
+  color: var(--score-whisper);
+  border: 1px solid var(--score-rule);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+.ec-search {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 1 1 130px;
+  min-width: 96px;
+  max-width: 220px;
+  background: var(--score-surface);
+  border: 1px solid var(--score-rule);
+  border-radius: 6px;
+  padding: 5px 10px;
+  transition: border-color 0.14s var(--score-ease);
+}
+.ec-search:focus-within {
+  border-color: var(--score-violet-line);
+}
+
+/* Narrow canvas: drop the summon label + shortcut hint (the + icon and ⌘K
+   shortcut still work) and hide the flagged pill so the search stays usable. */
+@container canvas (max-width: 560px) {
+  .canvas-summon .cs-label,
+  .canvas-summon .kbd {
+    display: none;
+  }
+  .canvas-summon {
+    padding: 6px 8px;
+  }
+  .ec-overlay-pill {
+    display: none;
+  }
+}
+.ec-search svg {
+  width: 14px;
+  height: 14px;
+  color: var(--score-whisper);
+  flex-shrink: 0;
+}
+.ec-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-size: 12px;
+  color: var(--score-frost);
+}
+.ec-search input::placeholder {
+  color: var(--score-whisper);
+}
+
+.tool-btn {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--score-rule);
+  border-radius: 6px;
+  background: var(--score-surface);
+  color: var(--score-muted);
+  transition:
+    background 0.14s var(--score-ease),
+    color 0.14s var(--score-ease),
+    border-color 0.14s var(--score-ease);
+}
+.tool-btn:hover {
+  color: var(--score-frost);
+  background: var(--score-surface-2);
+}
+.tool-btn.on {
+  color: var(--score-violet);
+  background: var(--score-violet-wash);
+  border-color: var(--score-violet-line);
+}
+
+/* search results dropdown — anchored under the search field */
+.ec-results {
+  position: absolute;
+  top: 50px;
+  right: 16px;
+  width: 300px;
+  z-index: 8;
+  background: var(--score-surface);
+  border: 1px solid var(--score-rule);
+  border-radius: 8px;
+  box-shadow: 0 24px 48px -12px rgba(10, 10, 20, 0.3);
+  max-height: 340px;
+  overflow-y: auto;
+  padding: 6px;
+}
+.ec-rrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  padding: 7px 8px;
+  color: var(--score-frost);
+}
+.ec-rrow:hover {
+  background: var(--score-violet-wash);
+}
+.ec-rrow img {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.ec-rrow .n {
+  font-size: 12px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ec-rrow .p {
+  font-family: var(--score-mono);
+  font-size: 9px;
+  color: var(--score-whisper);
+  display: block;
+}
+.ec-rrow .d {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.ec-results-empty {
+  padding: 16px;
+  text-align: center;
+  color: var(--score-whisper);
+  font-size: 13px;
+}
+
+/* atlas mini-panel — one cell per resource, click to jump */
+.ec-atlas {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 300px;
+  z-index: 6;
+  background: var(--score-surface);
+  border: 1px solid var(--score-rule);
+  border-radius: 8px;
+  box-shadow:
+    0 1px 2px rgba(10, 10, 20, 0.05),
+    0 18px 40px -20px rgba(10, 10, 20, 0.35);
+  padding: 13px;
+}
+.ec-atlas-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.ec-atlas-head .eyebrow {
+  font-family: var(--score-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--score-muted);
+}
+.ec-atlas-close {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: none;
+  color: var(--score-whisper);
+  border-radius: 4px;
+}
+.ec-atlas-close:hover {
+  color: var(--score-frost);
+  background: var(--score-surface-2);
+}
+/* Cap the heatmap so the panel never grows past a ~square — at ATLAS_CAP
+   (2000) cells it would otherwise be ~700px tall. Beyond the cap it scrolls. */
+.ec-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 2px;
+  max-height: 214px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+.ec-grid::-webkit-scrollbar {
+  width: 6px;
+}
+.ec-grid::-webkit-scrollbar-thumb {
+  background: var(--score-rule);
+  border-radius: 3px;
+}
+.ec-grid::-webkit-scrollbar-thumb:hover {
+  background: var(--score-muted);
+}
+.ec-cell {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: #3fa66a;
+  cursor: pointer;
+  transition: transform 0.1s var(--score-ease);
+}
+.ec-cell.warn {
+  background: #c28a1e;
+}
+.ec-cell.bad {
+  background: #c44;
+}
+.ec-cell.match {
+  outline: 1.5px solid var(--score-violet);
+  outline-offset: 1px;
+}
+.ec-cell.dim {
+  opacity: 0.25;
+}
+.ec-cell:hover {
+  transform: scale(1.7);
+}
+.ec-atlas-note {
+  font-family: var(--score-mono);
+  font-size: 9px;
+  color: var(--score-whisper);
+  margin-top: 9px;
+  line-height: 1.5;
+}
+
+/* findings-layer toggle (on state) */
+.ec-overlay-pill {
+  cursor: pointer;
+  transition:
+    background 0.14s var(--score-ease),
+    color 0.14s var(--score-ease);
+}
+.ec-overlay-pill.on {
+  background: #c44;
+  color: #fff;
+  border-color: #c44;
+}
+.ec-overlay-pill.on .d {
+  background: #fff;
+}
+
+/* ── Estate canvas — scene + relationship-first nodes (DS port of canvas.css) ── */
+.estate-canvas {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  position: relative;
+}
+
+.ec-stage {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: auto;
+  background: var(--score-pitch);
+}
+.ec-paper {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(10, 10, 20, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+.ec-scene {
+  position: relative;
+  margin: 0 auto;
+}
+.ec-svg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.ec-collabel {
+  position: absolute;
+  font-family: var(--score-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--score-whisper);
+}
+
+/* nodes */
+.ecn {
+  position: absolute;
+  text-align: left;
+  background: var(--score-surface);
+  border: 1px solid var(--score-rule);
+  border-radius: 2px;
+  padding: 9px 11px;
+  cursor: pointer;
+  transition:
+    border-color 0.14s var(--score-ease),
+    box-shadow 0.14s var(--score-ease),
+    opacity 0.14s var(--score-ease);
+}
+.ecn:hover {
+  border-color: rgba(10, 10, 20, 0.3);
+}
+.ecn.hl {
+  border-color: var(--score-violet);
+  box-shadow:
+    0 0 0 1px var(--score-violet),
+    0 0 0 5px var(--score-violet-wash);
+}
+.ecn.dim {
+  opacity: 0.3;
+}
+.ecn.vpc {
+  background: var(--score-frost);
+  color: var(--score-pitch);
+}
+.ecn.vpc .ecn-name {
+  color: var(--score-pitch);
+}
+.ecn.vpc .ecn-sub {
+  color: rgba(232, 229, 245, 0.6);
+}
+.ecn.vpc .ec-health {
+  background: rgba(255, 255, 255, 0.16);
+}
+.ecn-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ecn-ico {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: flex;
+}
+.ecn-ico img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ecn-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--score-frost);
+}
+.ecn.svc .ecn-name,
+.ecn.res .ecn-name {
+  font-size: 11.5px;
+  font-weight: 500;
+}
+.ecn-n {
+  font-family: var(--score-mono);
+  font-size: 12px;
+  opacity: 0.8;
+}
+.ecn-sub {
+  font-family: var(--score-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--score-whisper);
+  margin-top: 2px;
+}
+.ecn-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.ecn-region {
+  font-family: var(--score-mono);
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--score-whisper);
+}
+.ecn-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--score-resolve);
+}
+.ecn-dot.warn {
+  background: #c28a1e;
+}
+.ecn-dot.bad {
+  background: #c44;
+}
+.ec-health {
+  display: flex;
+  height: 5px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--score-rule);
+  margin-top: 9px;
+}
+.ec-health i {
+  display: block;
+  height: 100%;
+}
+.ec-health i.ok {
+  background: #3fa66a;
+}
+.ec-health i.warn {
+  background: #c28a1e;
+}
+.ec-health i.bad {
+  background: #c44;
+}
+.ec-health i.unknown {
+  background: #94a3b8;
+}
+.ec-health i.na {
+  background: #cbd5e1;
+}
+.ecn.res {
+  width: 150px;
+}
+.ecn.neighbor {
+  border-style: dashed;
+  background: var(--score-pitch);
+}
+
+/* flag badge (per-service / per-resource finding) */
+.ecn-flag {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  border: 2px solid var(--score-pitch);
+}
+.ecn-flag.bad {
+  background: #c44;
+}
+.ecn-flag.warn {
+  background: #c28a1e;
+}
+.ecn-flag.pulse {
+  animation: ec-flagpulse 1.6s var(--score-ease) infinite;
+}
+@keyframes ec-flagpulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(204, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(204, 68, 68, 0);
+  }
+}
+
+/* roll-up finding badge (region / VPC containers) */
+.ecn-fbadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 18px;
+  padding: 0 6px 0 4px;
+  border-radius: 999px;
+  color: #fff;
+  font-family: var(--score-mono);
+  font-size: 10px;
+  font-weight: 600;
+  border: 2px solid var(--score-surface);
+  z-index: 3;
+}
+.ecn-fbadge.warn {
+  background: #c28a1e;
+}
+.ecn-fbadge.bad {
+  background: #c44;
+}
+.ecn-fbadge .fb-n {
+  line-height: 1;
+}
+
+.estate-canvas {
+  overflow: hidden;
+}
+.canvas-bar {
+  height: auto;
+  min-height: 52px;
+  flex-wrap: wrap;
+  padding-block: 9px;
+}
+.canvas-tools .tool-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.ec-crumbs {
+  flex-wrap: wrap;
+}
+.ec-stage {
+  overscroll-behavior: contain;
+}
+.ec-scene-frame {
+  position: relative;
+  margin-inline: auto;
+}
+.ec-scene {
+  margin: 0;
+}
+.ec-zoom {
+  position: sticky;
+  left: calc(100% - 108px);
+  top: 12px;
+  width: 96px;
+  height: 0;
+  z-index: 5;
+  display: flex;
+  gap: 3px;
+}
+.ec-zoom .tool-btn {
+  background: var(--score-surface);
+}
+.ec-results {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  max-width: calc(100vw - 32px);
+}
+.ec-atlas {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  max-width: calc(100vw - 32px);
+}
+.atlas-title {
+  font-size: 11px;
+  color: var(--score-muted);
+}
+.ec-cell {
+  padding: 0;
+  border: 0;
+}
+.ec-cell.unknown,
+.ec-cell.na,
+.ecn-dot.unknown,
+.ecn-dot.na {
+  background: #94a3b8;
+}
+.ecn {
+  transition:
+    border-color 0.14s var(--score-ease),
+    opacity 0.14s var(--score-ease);
+}
+.ecn.vpc .ecn-sub {
+  color: #c5c2cf;
+}
+.ec-atlas,
+.ec-results {
+  animation: canvas-reveal 0.18s var(--score-ease);
+}
+@keyframes canvas-reveal {
+  from {
+    opacity: 0.6;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 800px) {
+  .ec-bar-left {
+    flex-basis: 100%;
+  }
+  .canvas-tools {
+    flex: 1;
+  }
+  .ec-search {
+    max-width: none;
+  }
+  .ec-atlas,
+  .ec-results {
+    right: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ec-atlas,
+  .ec-results {
+    animation: none;
+  }
+}

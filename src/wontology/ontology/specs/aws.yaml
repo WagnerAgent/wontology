@@ -1,0 +1,601 @@
+schema_version: 2.0.0
+bundle_version: 2026.08.1
+provider: aws
+defaults:
+  category: unknown
+  capabilities:
+  - discovered
+  - requires_hydration
+  id_fields:
+  - Arn
+  - ARN
+  - arn
+  - resource_id
+  - Id
+  - id
+  name_fields:
+  - Name
+  - name
+  location_fields:
+  - _region
+  - Region
+  - region
+  - AWSRegion
+  type_fields:
+  - ResourceType
+  - resourceType
+  dynamic_type_prefix: aws.resource/
+  dynamic_type_qualified_by_service: true
+resources:
+  ec2:
+    type: AWS::EC2::Instance
+    category: compute
+    capabilities:
+    - workload
+    - network_attached
+    id_fields:
+    - InstanceArn
+    - InstanceId
+    name_fields:
+    - InstanceId
+  lambda:
+    type: AWS::Lambda::Function
+    category: compute
+    capabilities:
+    - workload
+    - event_consumer
+    id_fields:
+    - FunctionArn
+    - FunctionName
+    name_fields:
+    - FunctionName
+  autoscaling:
+    type: AWS::AutoScaling::AutoScalingGroup
+    category: compute
+    capabilities:
+    - scaler
+    id_fields:
+    - AutoScalingGroupARN
+    - AutoScalingGroupName
+    name_fields:
+    - AutoScalingGroupName
+  ecs:
+    type: AWS::ECS::Cluster
+    category: compute
+    capabilities:
+    - container_orchestrator
+    id_fields:
+    - ClusterArn
+    - clusterArn
+    name_fields:
+    - ClusterName
+    - clusterName
+    - ClusterArn
+    - clusterArn
+  eks:
+    type: AWS::EKS::Cluster
+    category: compute
+    capabilities:
+    - kubernetes
+    id_fields:
+    - Arn
+    - arn
+    - ClusterName
+    - name
+    name_fields:
+    - Name
+    - name
+    - ClusterName
+  ecr:
+    type: AWS::ECR::Repository
+    category: storage
+    capabilities:
+    - container_registry
+    id_fields:
+    - repositoryArn
+    - repositoryName
+    name_fields:
+    - repositoryName
+  elasticbeanstalk:
+    type: AWS::ElasticBeanstalk::Environment
+    category: compute
+    capabilities:
+    - application_platform
+    id_fields:
+    - EnvironmentArn
+    - EnvironmentId
+    - EnvironmentName
+    name_fields:
+    - EnvironmentName
+  vpc:
+    type: AWS::EC2::VPC
+    category: network
+    capabilities:
+    - network_boundary
+    id_fields:
+    - VpcId
+    name_fields:
+    - VpcId
+  subnet:
+    type: AWS::EC2::Subnet
+    category: network
+    capabilities:
+    - network_segment
+    id_fields:
+    - SubnetId
+    name_fields:
+    - SubnetId
+  securitygroup:
+    type: AWS::EC2::SecurityGroup
+    category: security
+    capabilities:
+    - network_policy
+    id_fields:
+    - GroupId
+    name_fields:
+    - GroupName
+    - GroupId
+  route_table:
+    type: AWS::EC2::RouteTable
+    category: network
+    capabilities:
+    - routing
+    id_fields:
+    - RouteTableId
+    name_fields:
+    - RouteTableId
+  internet_gateway:
+    type: AWS::EC2::InternetGateway
+    category: network
+    capabilities:
+    - internet_gateway
+    id_fields:
+    - InternetGatewayId
+    name_fields:
+    - InternetGatewayId
+  nat_gateway:
+    type: AWS::EC2::NatGateway
+    category: network
+    capabilities:
+    - egress_gateway
+    id_fields:
+    - NatGatewayId
+    name_fields:
+    - NatGatewayId
+  eip:
+    type: AWS::EC2::EIP
+    category: network
+    capabilities:
+    - public_endpoint
+    id_fields:
+    - AllocationId
+    - PublicIp
+    name_fields:
+    - PublicIp
+    - AllocationId
+  alb:
+    type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    category: network
+    capabilities:
+    - load_balancer
+    - public_endpoint
+    id_fields:
+    - LoadBalancerArn
+    name_fields:
+    - LoadBalancerName
+  cloudfront:
+    type: AWS::CloudFront::Distribution
+    category: network
+    capabilities:
+    - cdn
+    - public_endpoint
+    id_fields:
+    - ARN
+    - Id
+    name_fields:
+    - DomainName
+    - Id
+    global: true
+  route53:
+    type: AWS::Route53::HostedZone
+    category: network
+    capabilities:
+    - dns_zone
+    id_fields:
+    - Id
+    name_fields:
+    - Name
+    - Id
+    global: true
+  apigateway:
+    type: AWS::ApiGateway::RestApi
+    category: network
+    capabilities:
+    - api_endpoint
+    id_fields:
+    - arn
+    - id
+    name_fields:
+    - name
+    - id
+  s3:
+    type: AWS::S3::Bucket
+    category: storage
+    capabilities:
+    - object_store
+    id_fields:
+    - BucketArn
+    - Name
+    name_fields:
+    - Name
+    global: true
+  ebs:
+    type: AWS::EC2::Volume
+    category: storage
+    capabilities:
+    - block_store
+    id_fields:
+    - VolumeId
+    name_fields:
+    - VolumeId
+  efs:
+    type: AWS::EFS::FileSystem
+    category: storage
+    capabilities:
+    - file_store
+    id_fields:
+    - FileSystemArn
+    - FileSystemId
+    name_fields:
+    - Name
+    - FileSystemId
+  rds:
+    type: AWS::RDS::DBInstance
+    category: database
+    capabilities:
+    - relational_database
+    id_fields:
+    - DBInstanceArn
+    - DBInstanceIdentifier
+    name_fields:
+    - DBInstanceIdentifier
+  dynamodb:
+    type: AWS::DynamoDB::Table
+    category: database
+    capabilities:
+    - nosql_database
+    id_fields:
+    - TableArn
+    - TableName
+    name_fields:
+    - TableName
+  elasticache:
+    type: AWS::ElastiCache::CacheCluster
+    category: database
+    capabilities:
+    - cache
+    id_fields:
+    - ARN
+    - CacheClusterId
+    name_fields:
+    - CacheClusterId
+  redshift:
+    type: AWS::Redshift::Cluster
+    category: database
+    capabilities:
+    - data_warehouse
+    id_fields:
+    - ClusterNamespaceArn
+    - ClusterIdentifier
+    name_fields:
+    - ClusterIdentifier
+  sns:
+    type: AWS::SNS::Topic
+    category: messaging
+    capabilities:
+    - pubsub
+    id_fields:
+    - TopicArn
+    name_fields:
+    - DisplayName
+    - TopicArn
+  sqs:
+    type: AWS::SQS::Queue
+    category: messaging
+    capabilities:
+    - queue
+    id_fields:
+    - QueueArn
+    - QueueUrl
+    name_fields:
+    - QueueName
+    - QueueUrl
+  stepfunctions:
+    type: AWS::StepFunctions::StateMachine
+    category: integration
+    capabilities:
+    - workflow
+    id_fields:
+    - stateMachineArn
+    - name
+    name_fields:
+    - name
+  eventbridge:
+    type: AWS::Events::Rule
+    category: messaging
+    capabilities:
+    - event_router
+    id_fields:
+    - Arn
+    - Name
+    name_fields:
+    - Name
+  kinesis:
+    type: AWS::Kinesis::Stream
+    category: messaging
+    capabilities:
+    - event_stream
+    id_fields:
+    - StreamARN
+    - StreamName
+    name_fields:
+    - StreamName
+  iam_role:
+    type: AWS::IAM::Role
+    category: identity
+    capabilities:
+    - principal
+    - policy_subject
+    id_fields:
+    - Arn
+    - RoleId
+    - RoleName
+    name_fields:
+    - RoleName
+    global: true
+  iam_user:
+    type: AWS::IAM::User
+    category: identity
+    capabilities:
+    - principal
+    - policy_subject
+    id_fields:
+    - Arn
+    - UserId
+    - UserName
+    name_fields:
+    - UserName
+    global: true
+  kms:
+    type: AWS::KMS::Key
+    category: security
+    capabilities:
+    - encryption_key
+    id_fields:
+    - Arn
+    - KeyArn
+    - KeyId
+    name_fields:
+    - Description
+    - KeyId
+  secretsmanager:
+    type: AWS::SecretsManager::Secret
+    category: security
+    capabilities:
+    - secret
+    id_fields:
+    - ARN
+    - Name
+    name_fields:
+    - Name
+  ssm_parameter:
+    type: AWS::SSM::Parameter
+    category: configuration
+    capabilities:
+    - parameter
+    id_fields:
+    - ARN
+    - Name
+    name_fields:
+    - Name
+  acm:
+    type: AWS::CertificateManager::Certificate
+    category: security
+    capabilities:
+    - certificate
+    id_fields:
+    - CertificateArn
+    name_fields:
+    - DomainName
+    - CertificateArn
+  cloudformation:
+    type: AWS::CloudFormation::Stack
+    category: management
+    capabilities:
+    - deployment
+    id_fields:
+    - StackId
+    - StackName
+    name_fields:
+    - StackName
+  cloudwatch_alarm:
+    type: AWS::CloudWatch::Alarm
+    category: observability
+    capabilities:
+    - alarm
+    id_fields:
+    - AlarmArn
+    - AlarmName
+    name_fields:
+    - AlarmName
+  loggroup:
+    type: AWS::Logs::LogGroup
+    category: observability
+    capabilities:
+    - log_store
+    id_fields:
+    - arn
+    - logGroupName
+    name_fields:
+    - logGroupName
+  resource_inventory:
+    dynamic_type: true
+    id_fields:
+    - Arn
+    - ARN
+    - arn
+    - resource_id
+    name_fields:
+    - Name
+    - Arn
+relationships:
+- source: subnet
+  path: VpcId
+  kind: contains
+  reverse: true
+  id: aws.vpc-contains-subnet
+- source: securitygroup
+  path: VpcId
+  kind: contains
+  reverse: true
+  id: aws.vpc-contains-security-group
+- source: ec2
+  path: SubnetId
+  kind: deployed_in
+  id: aws.instance-in-subnet
+- source: ec2
+  path: VpcId
+  kind: deployed_in
+  id: aws.instance-in-vpc
+- source: ec2
+  path: SecurityGroups[].GroupId
+  kind: secured_by
+  id: aws.instance-security-group
+- source: ec2
+  path: IamInstanceProfile.Arn
+  kind: assumes_role
+  id: aws.instance-profile
+- source: ebs
+  path: Attachments[].InstanceId
+  kind: attached_to
+  id: aws.volume-attached-instance
+- source: ebs
+  path: KmsKeyId
+  kind: encrypted_by
+  id: aws.volume-kms-key
+- source: internet_gateway
+  path: Attachments[].VpcId
+  kind: attached_to
+  id: aws.igw-attached-vpc
+- source: nat_gateway
+  path: SubnetId
+  kind: deployed_in
+  id: aws.nat-in-subnet
+- source: nat_gateway
+  path: VpcId
+  kind: deployed_in
+  id: aws.nat-in-vpc
+- source: eip
+  path: InstanceId
+  kind: attached_to
+  id: aws.eip-attached-instance
+- source: eip
+  path: NetworkInterfaceId
+  kind: attached_to
+  id: aws.eip-attached-eni
+- source: route_table
+  path: VpcId
+  kind: deployed_in
+  id: aws.route-table-in-vpc
+- source: route_table
+  path: Associations[].SubnetId
+  kind: associated_with
+  id: aws.route-table-subnet
+- source: alb
+  path: VpcId
+  kind: deployed_in
+  id: aws.load-balancer-in-vpc
+- source: alb
+  path: SecurityGroups[]
+  kind: secured_by
+  id: aws.load-balancer-security-group
+- source: alb
+  path: AvailabilityZones[].SubnetId
+  kind: deployed_in
+  id: aws.load-balancer-in-subnet
+- source: lambda
+  path: VpcConfig.SubnetIds[]
+  kind: deployed_in
+  id: aws.lambda-in-subnet
+- source: lambda
+  path: VpcConfig.SecurityGroupIds[]
+  kind: secured_by
+  id: aws.lambda-security-group
+- source: lambda
+  path: VpcConfig.VpcId
+  kind: deployed_in
+  id: aws.lambda-in-vpc
+- source: lambda
+  path: Role
+  kind: assumes_role
+  id: aws.lambda-execution-role
+- source: lambda
+  path: KMSKeyArn
+  kind: encrypted_by
+  id: aws.lambda-kms-key
+- source: eks
+  path: resourcesVpcConfig.vpcId
+  kind: deployed_in
+  id: aws.eks-in-vpc
+- source: eks
+  path: resourcesVpcConfig.subnetIds[]
+  kind: deployed_in
+  id: aws.eks-in-subnet
+- source: eks
+  path: resourcesVpcConfig.securityGroupIds[]
+  kind: secured_by
+  id: aws.eks-security-group
+- source: eks
+  path: resourcesVpcConfig.clusterSecurityGroupId
+  kind: secured_by
+  id: aws.eks-cluster-security-group
+- source: eks
+  path: roleArn
+  kind: assumes_role
+  id: aws.eks-service-role
+- source: eks
+  path: encryptionConfig[].provider.keyArn
+  kind: encrypted_by
+  id: aws.eks-kms-key
+- source: rds
+  path: DBSubnetGroup.VpcId
+  kind: deployed_in
+  id: aws.rds-in-vpc
+- source: rds
+  path: DBSubnetGroup.Subnets[].SubnetIdentifier
+  kind: deployed_in
+  id: aws.rds-in-subnet
+- source: rds
+  path: VpcSecurityGroups[].VpcSecurityGroupId
+  kind: secured_by
+  id: aws.rds-security-group
+- source: rds
+  path: KmsKeyId
+  kind: encrypted_by
+  id: aws.rds-kms-key
+- source: secretsmanager
+  path: KmsKeyId
+  kind: encrypted_by
+  id: aws.secretsmanager-kms-key
+- source: loggroup
+  path: kmsKeyId
+  kind: encrypted_by
+  id: aws.loggroup-kms-key
+- source: dynamodb
+  path: SSEDescription.KMSMasterKeyArn
+  kind: encrypted_by
+  id: aws.dynamodb-kms-key
+- source: kinesis
+  path: KeyId
+  kind: encrypted_by
+  id: aws.kinesis-kms-key

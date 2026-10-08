@@ -1,0 +1,9 @@
+Wontology
+Copyright 2026 WagnerAgent contributors
+
+Includes ontology models, normalization, classification, provider rules, and
+presentation code extracted from Wagner, released by the project owner as part
+of this standalone open source project.
+
+AWS, Azure, and Google Cloud names identify supported services and do not imply
+endorsement by their respective owners.

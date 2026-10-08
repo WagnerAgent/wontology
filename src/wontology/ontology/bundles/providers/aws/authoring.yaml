@@ -1,0 +1,20 @@
+types:
+  compute.instance:
+    type: object
+    properties:
+      instance_type: {type: string, title: Instance Type}
+      cpu: {type: integer, title: vCPUs, minimum: 1}
+      memory_gb: {type: number, title: Memory (GB), minimum: 0}
+  data.database.instance:
+    type: object
+    properties:
+      engine: {type: string, title: Database Engine}
+      engine_version: {type: string, title: Engine Version}
+      storage_gb: {type: number, title: Storage (GB), minimum: 0}
+      encrypted: {type: boolean, title: Encryption}
+  compute.function:
+    type: object
+    properties:
+      runtime: {type: string, title: Runtime}
+      memory_mb: {type: integer, title: Memory (MB), minimum: 1}
+      timeout_seconds: {type: integer, title: Timeout, minimum: 1}

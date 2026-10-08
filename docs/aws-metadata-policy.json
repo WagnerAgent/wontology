@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "WontologyMetadata",
+      "Effect": "Allow",
+      "Action": [
+        "sts:GetCallerIdentity",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeInstances",
+        "ec2:DescribeVolumes",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeInternetGateways",
+        "ec2:DescribeNatGateways",
+        "elasticloadbalancing:DescribeLoadBalancers",
+        "lambda:ListFunctions",
+        "rds:DescribeDBInstances",
+        "ecr:DescribeRepositories",
+        "sns:ListTopics",
+        "logs:DescribeLogGroups",
+        "kms:ListKeys",
+        "s3:ListAllMyBuckets",
+        "iam:ListRoles"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
