@@ -4,6 +4,9 @@ on:
   pull_request:
 permissions:
   contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   python:
     strategy:
@@ -43,3 +46,35 @@ jobs:
       - run: npm run build
       - run: git diff --exit-code -- ../src/wontology/static/
       - run: npm audit --omit=dev --audit-level=high
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t wontology:ci .
+      - run: docker run -d --name wontology --publish 127.0.0.1:8787:8787 wontology:ci
+      - name: Verify packaged UI and all provider examples
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, time
+          from http.cookiejar import CookieJar
+          from urllib.request import build_opener, HTTPCookieProcessor
+          client = build_opener(HTTPCookieProcessor(CookieJar()))
+          base = 'http://127.0.0.1:8787'
+          for attempt in range(40):
+              try:
+                  assert b'Wontology' in client.open(base, timeout=2).read()
+                  break
+              except OSError:
+                  if attempt == 39:
+                      raise
+                  time.sleep(.25)
+          for provider in ('aws', 'azure', 'gcp'):
+              snapshot = json.load(client.open(f'{base}/api/demo?provider={provider}', timeout=5))
+              assert snapshot['resources'] and snapshot['relationships']
+          for asset in ('app.js', 'app.css', 'fonts/Inter.ttf', 'icons/network.svg'):
+              assert client.open(f'{base}/{asset}', timeout=5).read()
+          print('Container startup, bundled UI, fonts, and three provider examples passed')
+          PY
+      - if: always()
+        run: docker logs wontology; docker rm -f wontology

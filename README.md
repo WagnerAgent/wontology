@@ -68,7 +68,7 @@ Raw payload fields are removed before saving snapshots; selected sensitive field
 docker compose up --build
 ```
 
-Open http://127.0.0.1:8787. This starts example mode without credentials. The image builds the frontend from its lockfile and installs the Python application. For real cloud scans, mount or configure credentials as described in [cloud setup](docs/cloud-setup.md#docker-credentials). Docker packaging is provided but was not locally executed during initial release validation.
+Open http://127.0.0.1:8787. This starts example mode without credentials. The image builds the frontend from its lockfile and installs the Python application. CI builds the image and checks startup, bundled UI assets, and all three provider examples. For real cloud scans, mount or configure credentials as described in [cloud setup](docs/cloud-setup.md#docker-credentials). Live cloud credential mounts are not covered by the container smoke test.
 
 ## Development
 
