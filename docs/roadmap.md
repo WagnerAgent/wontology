@@ -2,7 +2,7 @@
 
 ## 0.1: local foundations
 
-AWS/Azure/GCP metadata connectors, validated evidence-backed ontologies, Wagner region/network/service/resource navigation and resource atlas, local snapshots, coverage, JSON import/export, and SVG export.
+AWS/Azure/GCP metadata connectors, validated evidence-backed ontologies, region/network/service/resource navigation and resource atlas, local snapshots, coverage, JSON import/export, and SVG export.
 
 ## Next
 

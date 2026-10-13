@@ -1,4 +1,4 @@
-// Navigable infrastructure canvas extracted from Wagner.
+// Navigable infrastructure canvas for Wontology.
 // Drills region → VPC → service → resource, drawing the dependency edges first
 // (SVG) and the nodes on top, at every level. Fed by a real `Estate`
 // (lib/estate-model + cachedResourcesToEstate). Owns its own toolbar

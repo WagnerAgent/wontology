@@ -2,7 +2,7 @@
 
 **Your cloud infrastructure, mapped.**
 
-Wontology turns AWS, Azure, and Google Cloud configuration into an evidence-backed ontology and a navigable diagram. Run it locally, connect an existing cloud session, and explore resources and their relationships. No Wagner account, signup, AI API key, or hosted backend is required.
+Wontology is a free, open-source tool for understanding cloud infrastructure. It turns AWS, Azure, and Google Cloud configuration into an evidence-backed ontology and a navigable diagram. Run it locally, connect an existing cloud session, and explore resources and their relationships. No signup, AI API key, or hosted backend is required.
 
 ![Wontology explorer showing a synthetic AWS environment](docs/explorer.png)
 
@@ -33,7 +33,7 @@ Snapshots are stored in `~/.wontology/snapshots.sqlite3` by default. Deleting th
 ## Explore
 
 - Discover AWS resources in selected regions, Azure resources in a subscription, or GCP assets in a project.
-- Navigate the Wagner canvas from region → VPC/network → service → resource. Use breadcrumbs, search by name/ID/type/tag, and the resource atlas to jump through your infrastructure.
+- Navigate the canvas from region → VPC/network → service → resource. Use breadcrumbs, search by name/ID/type/tag, and the resource atlas to jump through your infrastructure.
 - Switch to the full topology for pan, zoom, category filters, and grouping by type and location.
 - Select a resource to inspect its immediate connections and the configuration evidence behind each relationship.
 - See permission failures, incomplete scans, and unresolved references explicitly.
@@ -56,7 +56,7 @@ Cloud configuration proves structural relationships. A shared network or IAM per
 
 ## Privacy and access
 
-The application serves bundled UI assets from your computer. It has no telemetry, tracking, hosted AI calls, or Wagner authentication. Cloud requests go directly to the selected provider using the provider's local credential chain. Wontology does not accept pasted credentials in the browser.
+The application serves bundled UI assets from your computer. It has no telemetry, tracking, hosted AI calls, or product login. Cloud requests go directly to the selected provider using the provider's local credential chain. Wontology does not accept pasted credentials in the browser.
 
 Collectors use explicit metadata operations. No deployment, secret-value retrieval, storage-object download, database-content access, or infrastructure mutation is implemented. Use metadata-only cloud permissions even if your normal identity has broader access.
 
@@ -93,7 +93,7 @@ src/wontology/
   static/           Bundled local frontend
   server.py         Local API and background scan runner
   store.py          SQLite snapshot storage
-web/src/            Wagner navigable canvas and React Flow topology
+web/src/            Navigable canvas and React Flow topology
 tests/              Graph, connector, persistence, and HTTP boundary tests
 examples/           Synthetic snapshots for all three providers
 ```
@@ -102,6 +102,4 @@ Read [architecture](docs/architecture.md), [ontology extensions](docs/ontology.m
 
 ## License
 
-Apache License 2.0. See [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md).
-
-Wontology is extracted from Wagner's ontology engine, The Score design system, and navigable infrastructure canvas, with a standalone local runtime and provider connectors. The original SaaS application, credentials, private history, billing, chat, and provisioning services are excluded.
+Wontology is free to use, modify, and share under the Apache License 2.0. Forks, contributions, and community extensions are welcome. See [LICENSE](LICENSE), [third-party notices](THIRD_PARTY_NOTICES.md), and [contributing](CONTRIBUTING.md).

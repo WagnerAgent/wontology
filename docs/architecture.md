@@ -13,7 +13,7 @@ flowchart LR
 
 `wontology` starts a loopback HTTP server and opens the browser. The initial synthetic example does not initialize cloud credentials. A scan request starts a background thread for a single selected provider scope. Connector modules define all callable operations; there is no arbitrary cloud API dispatcher or shell command execution.
 
-The ontology package is extracted from Wagner's pure graph model, provider registry, YAML normalization, classification, and projection code. It has no dependency on Wagner users, organization membership, SQLAlchemy tenant policies, Redis, Celery, LangGraph, vector stores, or LLM services. React Flow preserves the existing application's infrastructure-canvas approach; the standalone React shell removes the SaaS onboarding and chat dependencies. Next.js SSR is unnecessary for this local application, so an esbuild bundle is served by Python.
+The ontology layer combines a typed graph model, provider registry, YAML normalization, classification, and projection code. The React UI provides hierarchical canvas navigation and a React Flow full topology view. Python serves the static esbuild bundle alongside the local API, so users do not need a separate frontend server or a hosted service.
 
 Every relationship carries evidence, rule identity, confidence, and observation time. Authoritative snapshots reject duplicate identities, dangling edges, inferred edges, and edges without evidence. Alias ambiguity stays unresolved. Snapshot and bundle versions allow exported graphs to be interpreted reproducibly.
 

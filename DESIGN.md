@@ -1,6 +1,6 @@
 # Wontology UI
 
-The UI uses Wagner Design System V1, **The Score**, in its light manuscript register. Its source is `wagner_frontend/app/globals.css` and `components/diagram/estate-canvas.tsx`, extracted for this standalone application.
+The UI uses a light canvas, white surfaces, dark text, and violet accents. Design tokens and component styles are defined in `web/src/style.css` and `web/src/canvas.css`; the navigable canvas is implemented in `web/src/estate-canvas.tsx`.
 
 | Role | Token | Value |
 | --- | --- | --- |
@@ -14,8 +14,8 @@ The UI uses Wagner Design System V1, **The Score**, in its light manuscript regi
 | Rules | `--score-rule` | `rgba(10,10,20,.12)` |
 | Confirmed success | `--score-resolve` | `#2C7A4D` |
 
-Typography follows [usewagner.com](https://www.usewagner.com/): variable Space Grotesk carries the wordmark and main page headline; variable Inter carries body text, controls, labels, and section and dialog headings. Fonts are bundled locally under the SIL Open Font License; no font service is contacted. Monospace is reserved for code and identifiers.
+Variable Space Grotesk carries the wordmark and main page headline; variable Inter carries body text, controls, labels, and section and dialog headings. Fonts are bundled locally under the SIL Open Font License; no font service is contacted. Monospace is reserved for code and identifiers.
 
-The default canvas preserves Wagner's region → network → service → resource navigation, breadcrumbs, relationship curves, resource search and atlas. Small toolbar controls use 6px corners; graph nodes use 2px corners. The optional full topology view supports pan, zoom, filters and exported SVG diagrams. Both views share the resource evidence inspector.
+The default canvas supports region → network → service → resource navigation, breadcrumbs, relationship curves, resource search and atlas. Small toolbar controls use 6px corners; graph nodes use 2px corners. The optional full topology view supports pan, zoom, filters and exported SVG diagrams. Both views share the resource evidence inspector.
 
 The canvas groups only observed resources. Network placement follows explicit containment, deployment and attachment evidence; ambiguous membership has its own bucket. Shared network placement never creates an application dependency. Gray means health unassessed. Service edges aggregate observed relationships; the inspector and JSON preserve their kinds and evidence.

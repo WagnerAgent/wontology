@@ -30,7 +30,7 @@ Automated tests use synthetic graph fixtures and mocked provider responses, incl
 - AWS regions are selected explicitly.
 - First Azure/GCP graph appears after inventory collection, rather than per page.
 - Scans are sequential within a provider; cancellation is cooperative between requests, which have bounded timeouts.
-- No external AI, automated provisioning, SaaS billing, or team accounts.
+- Discovery uses cloud SDKs directly, without an external AI service or automated provisioning.
 - JSON import is limited to 8 MiB, 20,000 resources, and 100,000 relationships.
 - The navigable canvas groups resources into observed region/network/service scopes; the atlas shows up to 2,000 cells and each service view up to 240 resources. Search reaches all resources, displaying up to 30 matches at a time.
 - In full topology, above 300 matching resources, the diagram aggregates by semantic type and location. Search and filters narrow the graph.
